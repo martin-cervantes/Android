@@ -7,7 +7,7 @@
     tools:context="com.example.mcervantes.birthdaycardapp.MainActivity">
 
     <ImageView
-        android:src="@drawable/android"
+        android:src="@drawable/party"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"/>
@@ -36,5 +36,5 @@
         android:text="From: Martin ;)"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:background="@color/colorPrimary"/>/>
+        android:background="@color/colorPrimary"/>
 </RelativeLayout>
