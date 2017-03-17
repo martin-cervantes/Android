@@ -23,6 +23,7 @@
         android:text="Happy BirthDay :D"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="@android:color/white"
         android:background="@color/colorPrimary"/>
 
     <TextView
@@ -36,5 +37,6 @@
         android:text="From: Martin ;)"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="@android:color/white"
         android:background="@color/colorPrimary"/>
 </RelativeLayout>
