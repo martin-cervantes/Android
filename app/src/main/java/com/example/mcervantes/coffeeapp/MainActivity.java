@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import java.text.NumberFormat;
 
+
+
 public class MainActivity extends AppCompatActivity
 {
     int numberOfCoffes = 2;
@@ -26,6 +28,18 @@ public class MainActivity extends AppCompatActivity
     {
         display(numberOfCoffes);
         displayPrice(numberOfCoffes * 5);
+    }
+
+    public void increment(View view)
+    {
+        int cantidad = 3;
+        display(cantidad);
+    }
+
+    public void decrement(View view)
+    {
+        int cantidad = 1;
+        display(cantidad);
     }
 
     /**
