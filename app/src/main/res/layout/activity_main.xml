@@ -21,6 +21,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="0"
+        android:textSize="16dp"
         android:textColor="@android:color/black"/>
 
     <Button
@@ -29,5 +30,6 @@
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Order"/>
+        android:text="Order"
+        android:onClick="submitOrder"/>
 </LinearLayout>
