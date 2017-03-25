@@ -13,6 +13,7 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity
 {
     int numberOfCoffes = 2;
+    int quantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,20 +27,23 @@ public class MainActivity extends AppCompatActivity
      */
     public void submitOrder(View view)
     {
-        display(numberOfCoffes);
-        displayPrice(numberOfCoffes * 5);
+        displayPrice(quantity * 5);
     }
 
     public void increment(View view)
     {
-        int cantidad = 3;
-        display(cantidad);
+        quantity = quantity + 1;
+        display(quantity);
     }
 
     public void decrement(View view)
     {
-        int cantidad = 1;
-        display(cantidad);
+        if(quantity > 0)
+        {
+            quantity = quantity - 1;
+        }
+
+        display(quantity);
     }
 
     /**
