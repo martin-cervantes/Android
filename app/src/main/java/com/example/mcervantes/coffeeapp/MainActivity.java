@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity
 {
     int numberOfCoffes = 2;
     int quantity = 0;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,7 +28,9 @@ public class MainActivity extends AppCompatActivity
      */
     public void submitOrder(View view)
     {
-        displayPrice(quantity * 5);
+       // displayPrice(quantity * 5);
+        String priceMessage = "Total = " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!! :D";
+        displayMessage(priceMessage);
     }
 
     public void increment(View view)
@@ -62,5 +65,14 @@ public class MainActivity extends AppCompatActivity
     {
         TextView priceTextView = (TextView) findViewById(R.id.price);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message)
+    {
+        TextView priceTextView = (TextView) findViewById(R.id.price);
+        priceTextView.setText(message);
     }
 }
