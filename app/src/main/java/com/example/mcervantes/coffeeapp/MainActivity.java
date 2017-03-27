@@ -12,9 +12,8 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity
 {
-    int numberOfCoffes = 2;
     int quantity = 0;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,15 +27,19 @@ public class MainActivity extends AppCompatActivity
      */
     public void submitOrder(View view)
     {
-       // displayPrice(quantity * 5);
-        String priceMessage = "Total = " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!! :D";
-        displayMessage(priceMessage);
+        TextView priceTextView = (TextView) findViewById(R.id.price);
+        priceTextView.setText("Total = " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!! :D");
+        //displayPrice();
+        /*String priceMessage = "Total = " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!! :D";
+        displayMessage(priceMessage);*/
     }
 
     public void increment(View view)
     {
         quantity = quantity + 1;
-        display(quantity);
+
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity);
+        quantityTextView.setText(quantity);
     }
 
     public void decrement(View view)
@@ -46,33 +49,33 @@ public class MainActivity extends AppCompatActivity
             quantity = quantity - 1;
         }
 
-        display(quantity);
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity);
+        quantityTextView.setText(quantity);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number)
+    /*private void display(int number)
     {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity);
-        quantityTextView.setText("" + number);
-    }
+
+    }*/
 
     /**
      * This method displays the given price on the screen.
      */
-    private void displayPrice(int number)
+  /*  private void displayPrice()
     {
         TextView priceTextView = (TextView) findViewById(R.id.price);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
+        priceTextView.setText("Total = " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!! :D");
+    }*/
 
     /**
      * This method displays the given text on the screen.
      */
-    private void displayMessage(String message)
+    /*private void displayMessage(String message)
     {
         TextView priceTextView = (TextView) findViewById(R.id.price);
         priceTextView.setText(message);
-    }
+    }*/
 }
