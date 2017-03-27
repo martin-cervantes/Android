@@ -22,16 +22,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
     }
 
-    /**
-     * This method is called when the order button is clicked.
-     */
     public void submitOrder(View view)
     {
         TextView priceTextView = (TextView) findViewById(R.id.price);
         priceTextView.setText("Total = " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!! :D");
-        //displayPrice();
-        /*String priceMessage = "Total = " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!! :D";
-        displayMessage(priceMessage);*/
     }
 
     public void increment(View view)
@@ -39,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         quantity = quantity + 1;
 
         TextView quantityTextView = (TextView) findViewById(R.id.quantity);
-        quantityTextView.setText(quantity);
+        quantityTextView.setText("" + quantity);
     }
 
     public void decrement(View view)
@@ -50,32 +44,6 @@ public class MainActivity extends AppCompatActivity
         }
 
         TextView quantityTextView = (TextView) findViewById(R.id.quantity);
-        quantityTextView.setText(quantity);
+        quantityTextView.setText("" + quantity);
     }
-
-    /**
-     * This method displays the given quantity value on the screen.
-     */
-    /*private void display(int number)
-    {
-
-    }*/
-
-    /**
-     * This method displays the given price on the screen.
-     */
-  /*  private void displayPrice()
-    {
-        TextView priceTextView = (TextView) findViewById(R.id.price);
-        priceTextView.setText("Total = " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!! :D");
-    }*/
-
-    /**
-     * This method displays the given text on the screen.
-     */
-    /*private void displayMessage(String message)
-    {
-        TextView priceTextView = (TextView) findViewById(R.id.price);
-        priceTextView.setText(message);
-    }*/
 }
