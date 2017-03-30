@@ -10,27 +10,33 @@
             android:text="Team A"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"
+            android:padding="4dp"/>
 
         <TextView
             android:text="counterA"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="4dp"
             android:id="@+id/counterA"/>
 
         <Button
             android:text="+3 Point"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"/>
 
         <Button
             android:text="+2 Point"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"/>
 
         <Button
             android:text="Free Throw"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"/>
 </LinearLayout>
 
