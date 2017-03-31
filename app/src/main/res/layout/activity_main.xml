@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
         <TextView
-            android:text="Team A"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="4dp"/>
-
-        <TextView
-            android:text="counterA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="4dp"
-            android:id="@+id/counterA"/>
+            android:text="Team A"/>
+
+        <TextView
+            android:id="@+id/counterA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="4dp"
+            android:text="0"/>
 
         <Button
-            android:text="+3 Point"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="addThreeForTeamA"/>
+            android:onClick="addThreeForTeamA"
+            android:text="+3 Point"/>
 
         <Button
-            android:text="+2 Point"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="addTwoForTeamA"/>
+            android:onClick="addTwoForTeamA"
+            android:text="+2 Point"/>
 
         <Button
-            android:text="Free Throw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="addOneForTeamA"/>
+            android:onClick="addOneForTeamA"
+            android:text="Free Throw"/>
 </LinearLayout>
 
