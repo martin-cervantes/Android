@@ -8,12 +8,9 @@ import android.widget.TextView;
 
 import java.text.NumberFormat;
 
-
-
 public class MainActivity extends AppCompatActivity
 {
     int quantity = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,8 +29,7 @@ public class MainActivity extends AppCompatActivity
     {
         quantity = quantity + 1;
 
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity);
-        quantityTextView.setText("" + quantity);
+        displayQuantity();
     }
 
     public void decrement(View view)
@@ -43,6 +39,11 @@ public class MainActivity extends AppCompatActivity
             quantity = quantity - 1;
         }
 
+        displayQuantity();
+    }
+
+    public void displayQuantity()
+    {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity);
         quantityTextView.setText("" + quantity);
     }
