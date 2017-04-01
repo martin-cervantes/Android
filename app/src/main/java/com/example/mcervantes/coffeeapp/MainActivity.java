@@ -21,9 +21,13 @@ public class MainActivity extends AppCompatActivity
 
     public void submitOrder(View view)
     {
-        int price = calculatePrice();
         TextView priceTextView = (TextView) findViewById(R.id.price);
-        priceTextView.setText("Total = " + NumberFormat.getCurrencyInstance().format(price) + "\nThank you!! :D");
+        priceTextView.setText(createOrderSummary(calculatePrice()));
+    }
+
+    public String createOrderSummary(int price)
+    {
+        return "Total = " + NumberFormat.getCurrencyInstance().format(price) + "\nThank you!! :D";
     }
 
     public void increment(View view)
@@ -45,8 +49,7 @@ public class MainActivity extends AppCompatActivity
 
     private int calculatePrice()
     {
-        int price = quantity * 5;
-        return price;
+        return quantity * 5;
     }
 
     public void displayQuantity()
