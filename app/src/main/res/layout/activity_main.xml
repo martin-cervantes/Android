@@ -56,12 +56,12 @@
         android:text="Price" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/orderSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="$0.00"
+        android:text="ORDER SUMMARY"
         android:textSize="16dp"
         android:textColor="@android:color/black"/>
 

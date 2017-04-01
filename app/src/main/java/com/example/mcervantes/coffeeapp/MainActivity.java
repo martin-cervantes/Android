@@ -21,13 +21,13 @@ public class MainActivity extends AppCompatActivity
 
     public void submitOrder(View view)
     {
-        TextView priceTextView = (TextView) findViewById(R.id.price);
-        priceTextView.setText(createOrderSummary(calculatePrice()));
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.orderSummary);
+        orderSummaryTextView.setText(createOrderSummary(calculatePrice()));
     }
 
     public String createOrderSummary(int price)
     {
-        return "Total = " + NumberFormat.getCurrencyInstance().format(price) + "\nThank you!! :D";
+        return "Name = Martin Cervantes\nQuantity = " + quantity + "\nTotal = " + NumberFormat.getCurrencyInstance().format(price) + "\nThank you!! :D";
     }
 
     public void increment(View view)
