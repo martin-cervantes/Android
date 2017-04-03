@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -20,9 +21,11 @@ public class MainActivity extends AppCompatActivity
      */
     public void eatCookie(View view)
     {
-        // TODO: Find a reference to the ImageView in the layout. Change the image.
+        ImageView myImage = (ImageView) findViewById(R.id.android_cookie_image_view);
+        myImage.setImageResource(R.drawable.after_cookies);
 
-        // TODO: Find a reference to the TextView in the layout. Change the text.
+        TextView myText = (TextView) findViewById(R.id.status_text_view);
+        myText.setText("I'm so full");
 
     }
 }
