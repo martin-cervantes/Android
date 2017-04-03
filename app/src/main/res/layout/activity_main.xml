@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:scaleType="centerCrop"
-        android:src="@drawable/before_cookie" />
+        android:src="@drawable/before_cookies" />
 
     <TextView
         android:id="@+id/status_text_view"
