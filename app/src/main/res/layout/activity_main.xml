@@ -15,10 +15,14 @@
         android:text="TOPPINGS" />
 
     <CheckBox
-        android:text="Whipped cream"
+        android:id="@+id/whipped_cream_Chk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cream" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="24dp"
+        android:text="Whipped cream"
+        android:textSize="16sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,8 +42,8 @@
             android:layout_height="48dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="-"
-            android:onClick="decrement"/>
+            android:onClick="decrement"
+            android:text="-"/>
 
         <TextView
             android:id="@+id/quantity"
@@ -48,8 +52,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="0"
-            android:textSize="16dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:textSize="16dp"/>
 
         <Button
             android:id="@+id/increment"
@@ -57,8 +61,8 @@
             android:layout_height="48dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="+"
-            android:onClick="increment"/>
+            android:onClick="increment"
+            android:text="+"/>
     </LinearLayout>
 
     <TextView
@@ -75,8 +79,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="ORDER SUMMARY"
-        android:textSize="16dp"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black"
+        android:textSize="16dp"/>
 
     <Button
         android:id="@+id/button"
@@ -84,6 +88,6 @@
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Order"
-        android:onClick="submitOrder"/>
+        android:onClick="submitOrder"
+        android:text="Order"/>
 </LinearLayout>

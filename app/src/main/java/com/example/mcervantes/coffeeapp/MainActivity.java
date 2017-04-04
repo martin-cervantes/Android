@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -21,6 +22,10 @@ public class MainActivity extends AppCompatActivity
 
     public void submitOrder(View view)
     {
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_Chk);
+        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+        //Log.v("MainActivity","Has Whipped cream: " + hasWhippedCream);
+
         TextView orderSummaryTextView = (TextView) findViewById(R.id.orderSummary);
         orderSummaryTextView.setText(createOrderSummary(calculatePrice()));
     }
