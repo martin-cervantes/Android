@@ -24,15 +24,22 @@ public class MainActivity extends AppCompatActivity
     {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_Chk);
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
-        //Log.v("MainActivity","Has Whipped cream: " + hasWhippedCream);
+
+        CheckBox ChololateCheckBox = (CheckBox) findViewById(R.id.chocolate_Chk);
+        boolean hasChololate = ChololateCheckBox.isChecked();
 
         TextView orderSummaryTextView = (TextView) findViewById(R.id.orderSummary);
-        orderSummaryTextView.setText(createOrderSummary(calculatePrice()));
+        orderSummaryTextView.setText(createOrderSummary(calculatePrice(), hasWhippedCream, hasChololate));
     }
 
-    public String createOrderSummary(int price)
+    public String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate)
     {
-        return "Name = Martin Cervantes\nQuantity = " + quantity + "\nTotal = " + NumberFormat.getCurrencyInstance().format(price) + "\nThank you!! :D";
+        return "Name = Martin Cervantes\n" +
+                "Add whipped cream? "+ addWhippedCream +"\n" +
+                "Add chocolate? "+ addChocolate +"\n" +
+                "Quantity = " + quantity + "\n" +
+                "Total = " + NumberFormat.getCurrencyInstance().format(price) + "\n" +
+                "Thank you!! :D";
     }
 
     public void increment(View view)
