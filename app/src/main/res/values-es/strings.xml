@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Coffee App</string>
-    <string name="whipped_cream" translatable="false">Crema Batida</string>
-    <string name="chocolate" translatable="false">Chocolate</string>
+    <string name="whipped_cream">Crema Batida</string>
+    <string name="chocolate">Chocolate</string>
     <string name="toppings">Ingredientes</string>
     <string name="quantity">Cantidad</string>
     <string name="price">Precio</string>
