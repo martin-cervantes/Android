@@ -44,31 +44,29 @@ public class MainActivity extends AppCompatActivity
         }
 
         TextView orderSummaryTextView = (TextView) findViewById(R.id.orderSummary);
-        //orderSummaryTextView.setText(createOrderSummary(calculatePrice(), name));
+        String message = createOrderSummary(calculatePrice(), name);
+        orderSummaryTextView.setText(message);
 
-        createOrderSummary(calculatePrice(), name);
-
-    }
-
-    public void createOrderSummary(int price, String customer)
-    {
-        String message =  "Name = "+ customer +"\n" +
-                "Add whipped cream? "+ hasWhippedCream +"\n" +
-                "Add chocolate? "+ hasChololate +"\n" +
-                "Quantity = " + quantity + "\n" +
-                "Total = " + NumberFormat.getCurrencyInstance().format(price) + "\n" +
-                "Thank you!! :D";
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_EMAIL, "cervantes.martine@gmail.com");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee App");
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
         intent.putExtra(Intent.EXTRA_TEXT, message);
         if (intent.resolveActivity(getPackageManager()) != null)
         {
             startActivity(intent);
         }
+    }
 
+    public String createOrderSummary(int price, String customer)
+    {
+         return getString(R.string.hint) + " = "+ customer +"\n" +
+                getString(R.string.topping1)+ " "+ hasWhippedCream +"\n" +
+                getString(R.string.topping2) + " "+ hasChololate +"\n" +
+                getString(R.string.quantity) + " = " + quantity + "\n" +
+                getString(R.string.total) + " = " + NumberFormat.getCurrencyInstance().format(price) + "\n" +
+                getString(R.string.thanks);
     }
 
     public void increment(View view)
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            Toast.makeText(this, "You cannot have more than 50 coffees :(", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.more_than_error, Toast.LENGTH_LONG).show();
         }
 
         displayQuantity();
@@ -93,7 +91,7 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            Toast.makeText(this, "You cannot have less than 1 coffee :(", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.less_than_error, Toast.LENGTH_LONG).show();
         }
 
         displayQuantity();

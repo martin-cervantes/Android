@@ -9,4 +9,10 @@
     <string name="order_summary">Detalles de la orden</string>
     <string name="order">Orden</string>
     <string name="hint">Nombre</string>
+    <string name="thanks">Gracias!! :D</string>
+    <string name="topping1">Se agrego crema batida?</string>
+    <string name="topping2">Se agrego chocolate?</string>
+    <string name="total">Total</string>
+    <string name="less_than_error">No se puede comprar menos de 1 cafe :(</string>
+    <string name="more_than_error">No se puede comprar mas de 50 cafes :(</string>
 </resources>
