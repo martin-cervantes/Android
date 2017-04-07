@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity
             name = nameEditText.getText().toString();
         }
 
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.orderSummary);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary);
         String message = createOrderSummary(calculatePrice(), name);
         orderSummaryTextView.setText(message);
 
@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity
 
     public String createOrderSummary(int price, String customer)
     {
-         return getString(R.string.hint) + " = "+ customer +"\n" +
-                getString(R.string.topping1)+ " "+ hasWhippedCream +"\n" +
-                getString(R.string.topping2) + " "+ hasChololate +"\n" +
+         return getString(R.string.hint) + " = " + customer +"\n" +
+                getString(R.string.topping1) + " " + hasWhippedCream +"\n" +
+                getString(R.string.topping2) + " " + hasChololate +"\n" +
                 getString(R.string.quantity) + " = " + quantity + "\n" +
                 getString(R.string.total) + " = " + NumberFormat.getCurrencyInstance().format(price) + "\n" +
                 getString(R.string.thanks);

@@ -18,10 +18,7 @@
         android:id="@+id/name" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        style="@style/headerTextStyle"
         android:text="@string/toppings" />
 
     <CheckBox
@@ -45,10 +42,7 @@
         android:textSize="16sp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        style="@style/headerTextStyle"
         android:text="@string/quantity" />
 
     <LinearLayout
@@ -86,21 +80,16 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        style="@style/headerTextStyle"
         android:text="@string/price" />
 
     <TextView
-        android:id="@+id/orderSummary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/order_summary"
+        style="@style/headerTextStyle"
         android:text="@string/order_summary"
-        android:textColor="@android:color/black"
-        android:textSize="16dp"/>
+        android:textStyle="normal"
+        android:textColor="@android:color/black"/>
+
 
     <Button
         android:id="@+id/button"
