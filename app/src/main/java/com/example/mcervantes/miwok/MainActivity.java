@@ -1,4 +1,4 @@
-package com.example.mcervantes.baseballscoreboard;
+package com.example.mcervantes.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

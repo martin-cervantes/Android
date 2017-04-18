@@ -1,4 +1,4 @@
-package com.example.mcervantes.baseballscoreboard;
+package com.example.mcervantes.miwok;
 
 import org.junit.Test;
 

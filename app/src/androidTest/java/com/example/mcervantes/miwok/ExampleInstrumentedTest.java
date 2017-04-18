@@ -1,4 +1,4 @@
-package com.example.mcervantes.baseballscoreboard;
+package com.example.mcervantes.miwok;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
