@@ -28,15 +28,12 @@ public class Numbers extends AppCompatActivity
         words.add("nine");
         words.add("ten");
 
-        Log.v("Numbers Activity", "Word at index 0: " + words.get(0));
-        Log.v("Numbers Activity", "Word at index 1: " + words.get(1));
-        Log.v("Numbers Activity", "Word at index 2: " + words.get(2));
-        Log.v("Numbers Activity", "Word at index 3: " + words.get(3));
-        Log.v("Numbers Activity", "Word at index 4: " + words.get(4));
-        Log.v("Numbers Activity", "Word at index 5: " + words.get(5));
-        Log.v("Numbers Activity", "Word at index 6: " + words.get(6));
-        Log.v("Numbers Activity", "Word at index 7: " + words.get(7));
-        Log.v("Numbers Activity", "Word at index 8: " + words.get(8));
-        Log.v("Numbers Activity", "Word at index 9: " + words.get(9));
+        LinearLayout rootView = (LinearLayout)findViewById(R.id.activity_numbers);
+        
+        TextView wordView = new TextView(this);
+        
+        wordView.setText(words.get(0));
+        
+        rootView.addView(wordView);        
     }
 }
