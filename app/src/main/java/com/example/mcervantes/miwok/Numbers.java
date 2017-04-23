@@ -30,26 +30,31 @@ public class Numbers extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
 
-        ArrayList<String> words = new ArrayList<String>();
+        ArrayList<Words> words = new ArrayList<Words>();
 
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
+        //words.add("one");  <---forma original
+        //Words w = new Words("one", "lutti");  <---nueva forma creando el objeto
+        //words.add(w); <---agregando el objeto a la lista
+
+        words.add(new Words("one", "lutti"));  //<---pasos resumidos
+
+        words.add(new Words("two", "otiiko"));
+        words.add(new Words("three", "tolookosu"));
+        words.add(new Words("four", "oyyisa"));
+        words.add(new Words("five", "massokka"));
+        words.add(new Words("six", "temmokka"));
+        words.add(new Words("seven", "kenekaku"));
+        words.add(new Words("eight", "kawinta"));
+        words.add(new Words("nine", "wo'e"));
+        words.add(new Words("ten", "na'aacha"));
 
         // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
         // adapter knows how to create layouts for each item in the list, using the
         // simple_list_item_1.xml layout resource defined in the Android framework.
         // This list item layout contains a single {@link TextView}, which the adapter will set to
         // display a single word.
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.list_item, words);
+        ArrayAdapter<Words> itemsAdapter =
+                new ArrayAdapter<Words>(this, android.R.layout.list_item, words);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
