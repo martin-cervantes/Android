@@ -2,6 +2,9 @@ package com.example.mcervantes.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class FamilyMembers extends AppCompatActivity
 {
@@ -13,17 +16,23 @@ public class FamilyMembers extends AppCompatActivity
         setContentView(R.layout.activity_family_members);
 
 
-        String[] words =  new String[10];
+        ArrayList<Word> words = new ArrayList<Word>();
 
-        words[0] = "one";
-        words[1] = "two";
-        words[2] = "three";
-        words[3] = "four";
-        words[4] = "five";
-        words[5] = "six";
-        words[6] = "seven";
-        words[7] = "eight";
-        words[8] = "nine";
-        words[9] = "ten";
+        words.add(new Word("father", "әpә"));
+        words.add(new Word("mother", "әṭa"));
+        words.add(new Word("son", "angsi"));
+        words.add(new Word("daughter", "tune"));
+        words.add(new Word("older brother", "taachi"));
+        words.add(new Word("younger brother", "chalitti"));
+        words.add(new Word("older sister", "teṭe"));
+        words.add(new Word("younger sister", "kolliti"));
+        words.add(new Word("grandmother", "ama"));
+        words.add(new Word("grandfather", "paapa"));
+
+        WordAdapter adapter = new WordAdapter(this, words);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(adapter);
     }
 }

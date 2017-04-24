@@ -27,12 +27,7 @@ public class Numbers extends AppCompatActivity
 
         ArrayList<Word> words = new ArrayList<Word>();
 
-        //words.add("one");  <---forma original
-        //Word w = new Word("one", "lutti");  <---nueva forma creando el objeto
-        //words.add(w); <---agregando el objeto a la lista
-
-        words.add(new Word("one", "lutti"));  //<---pasos resumidos
-
+        words.add(new Word("one", "lutti"));
         words.add(new Word("two", "otiiko"));
         words.add(new Word("three", "tolookosu"));
         words.add(new Word("four", "oyyisa"));

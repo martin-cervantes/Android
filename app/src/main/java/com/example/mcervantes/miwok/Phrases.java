@@ -2,6 +2,9 @@ package com.example.mcervantes.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class Phrases extends AppCompatActivity
 {
@@ -13,17 +16,23 @@ public class Phrases extends AppCompatActivity
         setContentView(R.layout.activity_phrases);
 
 
-        String[] words =  new String[10];
+        ArrayList<Word> words = new ArrayList<Word>();
 
-        words[0] = "one";
-        words[1] = "two";
-        words[2] = "three";
-        words[3] = "four";
-        words[4] = "five";
-        words[5] = "six";
-        words[6] = "seven";
-        words[7] = "eight";
-        words[8] = "nine";
-        words[9] = "ten";
+        words.add(new Word("Where are you going?", "minto wuksus?"));
+        words.add(new Word("What is your name?", "tinnә oyaase'nә?"));
+        words.add(new Word("My name is...", "oyaaset..."));
+        words.add(new Word("How are you feeling?", "michәksәs?"));
+        words.add(new Word("I'm feeling good.", "kuchi achit"));
+        words.add(new Word("Are you coming?", "әәnәs'aa?"));
+        words.add(new Word("Yes, I'm coming.", "hәә’ әәnәm"));
+        words.add(new Word("I’m coming.", "әәnәm"));
+        words.add(new Word("Let's go.", "yoowutis"));
+        words.add(new Word("Come here.", "әnni'nem"));
+
+        WordAdapter adapter = new WordAdapter(this, words);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(adapter);
     }
 }
