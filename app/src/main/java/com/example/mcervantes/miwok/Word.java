@@ -4,13 +4,13 @@ package com.example.mcervantes.miwok;
  * Created by mcervantes on 23/04/17.
  */
 
-public class Words
+public class Word
 {
     private String mDefaultTranslation;
 
     private String mMiwokTranslation;
 
-    public Words(String defaultTranslation, String miwokTranslation)
+    public Word(String defaultTranslation, String miwokTranslation)
     {
         mDefaultTranslation = defaultTranslation;
 
