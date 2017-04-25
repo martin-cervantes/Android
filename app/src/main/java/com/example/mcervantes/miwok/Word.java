@@ -6,24 +6,41 @@ package com.example.mcervantes.miwok;
 
 public class Word
 {
-    private String mDefaultTranslation;
+    private String defaultTranslation;
 
-    private String mMiwokTranslation;
+    private String miwokTranslation;
 
-    public Word(String defaultTranslation, String miwokTranslation)
+    private int imageResourceID;
+
+
+    public Word(String defaultWord, String miwokWord)
     {
-        mDefaultTranslation = defaultTranslation;
+        defaultTranslation = defaultWord;
 
-        mMiwokTranslation = miwokTranslation;
+        miwokTranslation = miwokWord;
+    }
+
+    public Word(String defaultWord, String miwokWord, int resourceID)
+    {
+        defaultTranslation = defaultWord;
+
+        miwokTranslation = miwokWord;
+
+        imageResourceID = resourceID;
     }
 
     public String getDefaultTranslation()
     {
-        return mDefaultTranslation;
+        return defaultTranslation;
     }
 
     public String getMiwokTranslation()
     {
-        return mMiwokTranslation;
+        return miwokTranslation;
+    }
+
+    public int getImageResourceID()
+    {
+        return imageResourceID;
     }
 }
