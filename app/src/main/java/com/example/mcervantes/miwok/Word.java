@@ -10,7 +10,9 @@ public class Word
 
     private String miwokTranslation;
 
-    private int imageResourceID;
+    private int imageResourceID = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
 
 
     public Word(String defaultWord, String miwokWord)
@@ -42,5 +44,10 @@ public class Word
     public int getImageResourceID()
     {
         return imageResourceID;
+    }
+
+    public boolean hasImage()
+    {
+        return imageResourceID != NO_IMAGE_PROVIDED;
     }
 }

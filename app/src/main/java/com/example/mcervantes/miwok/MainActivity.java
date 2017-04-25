@@ -90,28 +90,4 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
-
-    /*public void openNumbersList (View view)
-    {
-        Intent i = new Intent(this, Numbers.class);
-        startActivity(i);
-    }
-
-    public void openFamilyMembersList (View view)
-    {
-        Intent i = new Intent(this, FamilyMembers.class);
-        startActivity(i);
-    }
-
-    public void openColorsList (View view)
-    {
-        Intent i = new Intent(this, Colors.class);
-        startActivity(i);
-    }
-
-    public void openPhrasesList (View view)
-    {
-        Intent i = new Intent(this, Phrases.class);
-        startActivity(i);
-    }*/
 }

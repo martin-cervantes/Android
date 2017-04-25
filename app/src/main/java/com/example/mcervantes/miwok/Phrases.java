@@ -13,7 +13,7 @@ public class Phrases extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phrases);
+        setContentView(R.layout.words_list);
 
 
         ArrayList<Word> words = new ArrayList<Word>();
