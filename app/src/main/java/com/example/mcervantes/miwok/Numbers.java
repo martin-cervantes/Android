@@ -3,7 +3,11 @@ package com.example.mcervantes.miwok;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -44,6 +48,15 @@ public class Numbers extends AppCompatActivity
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(adapter);
+
+        listView.setOnClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                Toast.makeText(Numbers.this, "List Item clicked", Toast.LENGTH_SHORT);
+            }
+        });
 
     }
 }
