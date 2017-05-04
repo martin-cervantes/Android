@@ -14,21 +14,27 @@ public class Word
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
+    private int audioResourceID;
 
-    public Word(String defaultWord, String miwokWord)
+
+    public Word(String defaultWord, String miwokWord, int audioID)
     {
         defaultTranslation = defaultWord;
 
         miwokTranslation = miwokWord;
+
+        audioResourceID = audioID;
     }
 
-    public Word(String defaultWord, String miwokWord, int resourceID)
+    public Word(String defaultWord, String miwokWord, int imageID, int audioID)
     {
         defaultTranslation = defaultWord;
 
         miwokTranslation = miwokWord;
 
-        imageResourceID = resourceID;
+        imageResourceID = imageID;
+
+        audioResourceID =  audioID;
     }
 
     public String getDefaultTranslation()
@@ -49,5 +55,10 @@ public class Word
     public boolean hasImage()
     {
         return imageResourceID != NO_IMAGE_PROVIDED;
+    }
+
+    public int getAudioResourceID()
+    {
+        return audioResourceID;
     }
 }
