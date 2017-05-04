@@ -1,5 +1,6 @@
 package com.example.mcervantes.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -7,26 +8,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
-
-
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.util.ArrayList;
 
 public class Numbers extends AppCompatActivity
 {
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    private MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
+
 
 
         ArrayList<Word> words = new ArrayList<Word>();
@@ -55,6 +48,9 @@ public class Numbers extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 Toast.makeText(Numbers.this, "List item clicked", Toast.LENGTH_SHORT).show();
+
+                mMediaPlayer = MediaPlayer.create(Numbers.this, R.raw.number_one);
+                mMediaPlayer.start();
             }
         });
 
