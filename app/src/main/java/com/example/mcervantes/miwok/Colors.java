@@ -1,6 +1,8 @@
 package com.example.mcervantes.miwok;
 
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -23,12 +25,33 @@ public class Colors extends AppCompatActivity
         }
     };
 
+    private AudioManager mAudioManager;
+
+    AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener(){
+        public void onAudioFocusChange(int focusChange){
+            if(focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK)
+            {
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+            }
+            else if(focusChange == AudioManager.AUDIOFOCUS_GAIN)
+            {
+                mMediaPlayer.start();
+            }
+            else if(focusChange == AudioManager.AUDIOFOCUS_LOSS)
+            {
+                releaseMediaPlayer();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
 
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         final ArrayList<Word> words = new ArrayList<Word>();
 
@@ -56,11 +79,18 @@ public class Colors extends AppCompatActivity
 
                 releaseMediaPlayer();
 
-                mMediaPlayer = MediaPlayer.create(Colors.this, word.getAudioResourceID());
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
-                mMediaPlayer.start();
+                if(result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED)
+                {
+                    //mAudioManager.registerMediaButtonEventReceiver(RemoteControlReceiver);
 
-                mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                    mMediaPlayer = MediaPlayer.create(Colors.this, word.getAudioResourceID());
+
+                    mMediaPlayer.start();
+
+                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                }
             }
         });
 
@@ -81,6 +111,8 @@ public class Colors extends AppCompatActivity
             mMediaPlayer.release();
 
             mMediaPlayer = null;
+
+            mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
 }
