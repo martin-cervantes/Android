@@ -1,6 +1,23 @@
 package com.example.mcervantes.miwok;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
+public class Phrases extends AppCompatActivity
+{
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_category);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new PhrasesFragment()).commit();
+    }
+}
+
+/**
 import android.content.Context;
 import android.media.AudioManager;
 import android.support.v7.app.AppCompatActivity;
@@ -85,8 +102,6 @@ public class Phrases extends AppCompatActivity
 
                 if(result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED)
                 {
-                    //mAudioManager.registerMediaButtonEventReceiver(RemoteControlReceiver);
-
                     mMediaPlayer = MediaPlayer.create(Phrases.this, word.getAudioResourceID());
 
                     mMediaPlayer.start();
@@ -117,4 +132,4 @@ public class Phrases extends AppCompatActivity
             mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
-}
+}*/
