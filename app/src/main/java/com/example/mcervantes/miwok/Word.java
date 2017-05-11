@@ -6,7 +6,7 @@ package com.example.mcervantes.miwok;
 
 public class Word
 {
-    private String defaultTranslation;
+    private int defaultTranslation;
 
     private String miwokTranslation;
 
@@ -17,18 +17,18 @@ public class Word
     private int audioResourceID;
 
 
-    public Word(String defaultWord, String miwokWord, int audioID)
+    public Word(int defaultWordID, String miwokWord, int audioID)
     {
-        defaultTranslation = defaultWord;
+        defaultTranslation = defaultWordID;
 
         miwokTranslation = miwokWord;
 
         audioResourceID = audioID;
     }
 
-    public Word(String defaultWord, String miwokWord, int imageID, int audioID)
+    public Word(int defaultWordID, String miwokWord, int imageID, int audioID)
     {
-        defaultTranslation = defaultWord;
+        defaultTranslation = defaultWordID;
 
         miwokTranslation = miwokWord;
 
@@ -37,7 +37,7 @@ public class Word
         audioResourceID =  audioID;
     }
 
-    public String getDefaultTranslation()
+    public int getDefaultTranslation()
     {
         return defaultTranslation;
     }
