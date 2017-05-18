@@ -42,7 +42,9 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake>
 
         TextView magnitudeView = (TextView) listItemView.findViewById(R.id.magnitude);
 
-        magnitudeView.setText(currentEarthquake.getMagnitude());
+        String formattedMagnitude = formatMagnitude(currentEarthquake.getMagnitude());
+
+        magnitudeView.setText(formattedMagnitude);
 
 
         String originalLocation = currentEarthquake.getLocation();
