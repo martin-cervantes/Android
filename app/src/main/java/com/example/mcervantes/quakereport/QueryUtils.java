@@ -1,4 +1,4 @@
-package com.example.android.quakereport;
+package com.example.mcervantes.quakereport;
 
 import android.util.Log;
 
@@ -6,7 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Helper methods related to requesting and receiving earthquake data from USGS.
@@ -50,24 +52,22 @@ public final class QueryUtils
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try
         {
-
-            // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
             // build up a list of Earthquake objects with the corresponding data.
             JSONObject root = new JSONObject(SAMPLE_JSON_RESPONSE);
             JSONArray earthquakeArray = root.getJSONArray("features");
-            
+
             for(int i = 0; i < earthquakeArray.length(); i++)
             {
                 JSONObject currentEarthhquake = earthquakeArray.getJSONObject(i);
-                
+
                 JSONObject properties = currentEarthhquake.getJSONObject("properties");
-                
+
                 String magnitude = properties.getString("mag");
                 String location = properties.getString("place");
-                String time = properties.getString("time");
-                
+                long time = properties.getLong("time");
+
                 Earthquake earthquake = new Earthquake(magnitude, location, time);
-                earthquake.add(earthquake);
+                earthquakes.add(earthquake);
             }
 
         }
