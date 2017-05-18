@@ -12,6 +12,7 @@ public class Earthquake
 
     private long mTimeInMilliseconds;
 
+
     public Earthquake(String magnitude, String location, long time)
     {
         mMagnitude = magnitude;
