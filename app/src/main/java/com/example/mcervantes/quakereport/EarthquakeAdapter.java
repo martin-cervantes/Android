@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.graphics.drawable.GradientDrawable;
 
 import org.w3c.dom.Text;
 
@@ -45,6 +46,12 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake>
         String formattedMagnitude = formatMagnitude(currentEarthquake.getMagnitude());
 
         magnitudeView.setText(formattedMagnitude);
+
+        GradientDrawable magnitudeCircle = (GradientDrawable)  magnitudeView.getBackground();
+
+        int magnitudeColor = getMagnitudeColor(currentEarthquake.getMagnitude());
+
+        magnitudeCircle.setColor(magnitudeColor);
 
 
         String originalLocation = currentEarthquake.getLocation();
