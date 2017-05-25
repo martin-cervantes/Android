@@ -2,6 +2,7 @@ package com.example.mcervantes.quakereport;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
+import android.util.Log;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>>
 {
     /** Tag for log messages */
-    private static final String LOG_TAG = EarthquakeLoader.class.getName();
+    private static final String LOG_TAG = EarthquakeLoader.class.getSimpleName();
 
     /** Query URL */
     private String mUrl;
@@ -27,6 +28,8 @@ public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>>
     @Override
     protected void onStartLoading()
     {
+        Log.e(LOG_TAG, "Loader startLoading method");
+
         forceLoad();
     }
 
@@ -34,6 +37,8 @@ public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>>
     @Override
     public List<Earthquake> loadInBackground()
     {
+        Log.e(LOG_TAG, "Loader loadInBackgroud method");
+
         if(mUrl == null)
         {
             return null;

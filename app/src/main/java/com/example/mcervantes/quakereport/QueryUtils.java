@@ -40,6 +40,16 @@ public final class QueryUtils
      */
     public static List<Earthquake> fetchEarthquakeData(String requestUrl)
     {
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+
+        Log.e(LOG_TAG, "fetchEathquakeData method");
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -105,7 +115,7 @@ public final class QueryUtils
 
             // If the request was successful (response code 200),
             // then read the input stream and parse the response.
-            if (urlConnection.getResponseCode() == 200)
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK)
             {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
