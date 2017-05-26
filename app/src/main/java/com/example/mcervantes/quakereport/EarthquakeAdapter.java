@@ -36,8 +36,8 @@ import java.util.List;
  * These list item layouts will be provided to an adapter view like ListView
  * to be displayed to the user.
  */
-public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
-
+public class EarthquakeAdapter extends ArrayAdapter<Earthquake>
+{
     /**
      * The part of the location string from the USGS service that we use to determine
      * whether or not there is a location offset present ("5km N of Cairo, Egypt").
@@ -50,7 +50,8 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
      * @param context of the app
      * @param earthquakes is the list of earthquakes, which is the data source of the adapter
      */
-    public EarthquakeAdapter(Context context, List<Earthquake> earthquakes) {
+    public EarthquakeAdapter(Context context, List<Earthquake> earthquakes)
+    {
         super(context, 0, earthquakes);
     }
 
@@ -59,11 +60,13 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
      * in the list of earthquakes.
      */
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
         // Check if there is an existing list item view (called convertView) that we can reuse,
         // otherwise, if convertView is null, then inflate a new list item layout.
         View listItemView = convertView;
-        if (listItemView == null) {
+        if(listItemView == null)
+        {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.earthquake_list_item, parent, false);
         }
 
@@ -97,7 +100,8 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         String locationOffset;
 
         // Check whether the originalLocation string contains the " of " text
-        if (originalLocation.contains(LOCATION_SEPARATOR)) {
+        if (originalLocation.contains(LOCATION_SEPARATOR))
+        {
             // Split the string into different parts (as an array of Strings)
             // based on the " of " text. We expect an array of 2 Strings, where
             // the first String will be "5km N" and the second String will be "Cairo, Egypt".
@@ -106,7 +110,9 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
             locationOffset = parts[0] + LOCATION_SEPARATOR;
             // Primary location should be "Cairo, Egypt"
             primaryLocation = parts[1];
-        } else {
+        }
+        else
+        {
             // Otherwise, there is no " of " text in the originalLocation string.
             // Hence, set the default location offset to say "Near the".
             locationOffset = getContext().getString(R.string.near_the);
@@ -150,10 +156,12 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
      *
      * @param magnitude of the earthquake
      */
-    private int getMagnitudeColor(double magnitude) {
+    private int getMagnitudeColor(double magnitude)
+    {
         int magnitudeColorResourceId;
         int magnitudeFloor = (int) Math.floor(magnitude);
-        switch (magnitudeFloor) {
+        switch(magnitudeFloor)
+        {
             case 0:
             case 1:
                 magnitudeColorResourceId = R.color.magnitude1;
@@ -194,7 +202,8 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
      * Return the formatted magnitude string showing 1 decimal place (i.e. "3.2")
      * from a decimal magnitude value.
      */
-    private String formatMagnitude(double magnitude) {
+    private String formatMagnitude(double magnitude)
+    {
         DecimalFormat magnitudeFormat = new DecimalFormat("0.0");
         return magnitudeFormat.format(magnitude);
     }
@@ -202,7 +211,8 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
     /**
      * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
      */
-    private String formatDate(Date dateObject) {
+    private String formatDate(Date dateObject)
+    {
         SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
         return dateFormat.format(dateObject);
     }
@@ -210,7 +220,8 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
     /**
      * Return the formatted date string (i.e. "4:30 PM") from a Date object.
      */
-    private String formatTime(Date dateObject) {
+    private String formatTime(Date dateObject)
+    {
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
         return timeFormat.format(dateObject);
     }

@@ -37,15 +37,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EarthquakeActivity extends AppCompatActivity
-        implements LoaderCallbacks<List<Earthquake>>,
-        SharedPreferences.OnSharedPreferenceChangeListener {
-
-    private static final String LOG_TAG = EarthquakeActivity.class.getName();
+public class EarthquakeActivity extends AppCompatActivity implements LoaderCallbacks<List<Earthquake>>, SharedPreferences.OnSharedPreferenceChangeListener
+{
+    private static final String LOG_TAG = EarthquakeActivity.class.getSimpleName();
 
     /** URL for earthquake data from the USGS dataset */
-    private static final String USGS_REQUEST_URL =
-            "http://earthquake.usgs.gov/fdsnws/event/1/query";
+    private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query";
 
     /**
      * Constant value for the earthquake loader ID. We can choose any integer.
@@ -60,7 +57,8 @@ public class EarthquakeActivity extends AppCompatActivity
     private TextView mEmptyStateTextView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
@@ -85,9 +83,11 @@ public class EarthquakeActivity extends AppCompatActivity
 
         // Set an item click listener on the ListView, which sends an intent to a web browser
         // to open a website with more information about the selected earthquake.
-        earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l)
+            {
                 // Find the current earthquake that was clicked on
                 Earthquake currentEarthquake = mAdapter.getItem(position);
 
@@ -110,7 +110,8 @@ public class EarthquakeActivity extends AppCompatActivity
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         // If there is a network connection, fetch data
-        if (networkInfo != null && networkInfo.isConnected()) {
+        if(networkInfo != null && networkInfo.isConnected())
+        {
             // Get a reference to the LoaderManager, in order to interact with loaders.
             LoaderManager loaderManager = getLoaderManager();
 
@@ -118,7 +119,9 @@ public class EarthquakeActivity extends AppCompatActivity
             // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
             // because this activity implements the LoaderCallbacks interface).
             loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
-        } else {
+        }
+        else
+        {
             // Otherwise, display error
             // First, hide loading indicator so error message will be visible
             View loadingIndicator = findViewById(R.id.loading_indicator);
@@ -130,9 +133,10 @@ public class EarthquakeActivity extends AppCompatActivity
     }
 
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (key.equals(getString(R.string.settings_min_magnitude_key)) ||
-                key.equals(getString(R.string.settings_order_by_key))){
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key)
+    {
+        if(key.equals(getString(R.string.settings_min_magnitude_key)) || key.equals(getString(R.string.settings_order_by_key)))
+        {
             // Clear the ListView as a new query will be kicked off
             mAdapter.clear();
 
@@ -149,7 +153,8 @@ public class EarthquakeActivity extends AppCompatActivity
     }
 
     @Override
-    public Loader<List<Earthquake>> onCreateLoader(int i, Bundle bundle) {
+    public Loader<List<Earthquake>> onCreateLoader(int i, Bundle bundle)
+    {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String minMagnitude = sharedPrefs.getString(
@@ -173,7 +178,8 @@ public class EarthquakeActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
+    public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes)
+    {
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
@@ -186,27 +192,32 @@ public class EarthquakeActivity extends AppCompatActivity
 
         // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
-        if (earthquakes != null && !earthquakes.isEmpty()) {
+        if (earthquakes != null && !earthquakes.isEmpty())
+        {
             mAdapter.addAll(earthquakes);
         }
     }
 
     @Override
-    public void onLoaderReset(Loader<List<Earthquake>> loader) {
+    public void onLoaderReset(Loader<List<Earthquake>> loader)
+    {
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             Intent settingsIntent = new Intent(this, SettingsActivity.class);
             startActivity(settingsIntent);
             return true;

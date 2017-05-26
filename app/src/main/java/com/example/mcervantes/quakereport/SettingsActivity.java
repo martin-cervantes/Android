@@ -23,19 +23,21 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
-public class SettingsActivity extends AppCompatActivity {
-
+public class SettingsActivity extends AppCompatActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
     }
 
-    public static class EarthquakePreferenceFragment extends PreferenceFragment
-            implements Preference.OnPreferenceChangeListener {
+    public static class EarthquakePreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener
+    {
 
         @Override
-        public void onCreate(Bundle savedInstanceState) {
+        public void onCreate(Bundle savedInstanceState)
+        {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
 
@@ -47,22 +49,30 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         @Override
-        public boolean onPreferenceChange(Preference preference, Object value) {
+        public boolean onPreferenceChange(Preference preference, Object value)
+        {
             String stringValue = value.toString();
-            if (preference instanceof ListPreference) {
+
+            if(preference instanceof ListPreference)
+            {
                 ListPreference listPreference = (ListPreference) preference;
                 int prefIndex = listPreference.findIndexOfValue(stringValue);
-                if (prefIndex >= 0) {
+
+                if(prefIndex >= 0)
+                {
                     CharSequence[] labels = listPreference.getEntries();
                     preference.setSummary(labels[prefIndex]);
                 }
-            } else {
+            }
+            else
+            {
                 preference.setSummary(stringValue);
             }
             return true;
         }
 
-        private void bindPreferenceSummaryToValue(Preference preference) {
+        private void bindPreferenceSummaryToValue(Preference preference)
+        {
             preference.setOnPreferenceChangeListener(this);
             SharedPreferences preferences =
                     PreferenceManager.getDefaultSharedPreferences(preference.getContext());

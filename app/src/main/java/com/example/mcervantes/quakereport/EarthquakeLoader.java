@@ -24,10 +24,10 @@ import java.util.List;
  * Loads a list of earthquakes by using an AsyncTask to perform the
  * network request to the given URL.
  */
-public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>> {
-
+public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>>
+{
     /** Tag for log messages */
-    private static final String LOG_TAG = EarthquakeLoader.class.getName();
+    private static final String LOG_TAG = EarthquakeLoader.class.getSimpleName();
 
     /** Query URL */
     private String mUrl;
@@ -38,13 +38,15 @@ public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>> {
      * @param context of the activity
      * @param url to load data from
      */
-    public EarthquakeLoader(Context context, String url) {
+    public EarthquakeLoader(Context context, String url)
+    {
         super(context);
         mUrl = url;
     }
 
     @Override
-    protected void onStartLoading() {
+    protected void onStartLoading()
+    {
         forceLoad();
     }
 
@@ -52,8 +54,10 @@ public class EarthquakeLoader extends AsyncTaskLoader<List<Earthquake>> {
      * This is on a background thread.
      */
     @Override
-    public List<Earthquake> loadInBackground() {
-        if (mUrl == null) {
+    public List<Earthquake> loadInBackground()
+    {
+        if(mUrl == null)
+        {
             return null;
         }
 
