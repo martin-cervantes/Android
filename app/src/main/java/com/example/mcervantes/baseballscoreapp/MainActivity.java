@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity
 
                     strikes_counter = 0;
 
+                    Toast.makeText(MainActivity.this, R.string.base_on_balls, Toast.LENGTH_SHORT).show();
+
                     TextView strikesCounter = (TextView) findViewById(R.id.strikes_counter);
 
                     strikesCounter.setText(String.valueOf(strikes_counter));
@@ -91,6 +94,8 @@ public class MainActivity extends AppCompatActivity
                 if(strikes_counter == 3)
                 {
                     strikes_counter = 0;
+
+                    Toast.makeText(MainActivity.this, R.string.strikeout, Toast.LENGTH_SHORT).show();
 
                     outsCounter();
                 }
@@ -124,6 +129,8 @@ public class MainActivity extends AppCompatActivity
 
             he = false;
 
+            Toast.makeText(MainActivity.this, R.string.half_inning, Toast.LENGTH_SHORT).show();
+
             Button homeButton = (Button) findViewById(R.id.home_button);
 
             homeButton.setEnabled(true);
@@ -139,6 +146,8 @@ public class MainActivity extends AppCompatActivity
             he = true;
 
             inners_counter += 1;
+
+            Toast.makeText(MainActivity.this, R.string.new_inning, Toast.LENGTH_SHORT).show();
 
             Button homeButton = (Button) findViewById(R.id.home_button);
 
