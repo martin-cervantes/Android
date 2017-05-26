@@ -14,7 +14,7 @@
         style="@style/primary_text"
         android:text="@string/size" />
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/large"/>
-    </LinearLayout>
+    </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
@@ -44,11 +44,11 @@
         style="@style/primary_text"
         android:text="@string/how_many_toppings" />
 
-    <LinearLayout
+
+    <RadioGroup
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
-
         <RadioButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/cuatro"/>
-    </LinearLayout>
+    </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
