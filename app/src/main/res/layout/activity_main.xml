@@ -3,99 +3,146 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#009900"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/primary_text"
             android:text="@string/guest"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            />
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/inning"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            style="@style/primary_text"
+            android:text="@string/inning" />
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            style="@style/primary_text"
+            android:text="@string/home" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/guest_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_weight="1"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="0"
+            android:textSize="30dp" />
         <TextView
+            android:id="@+id/inning_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="1"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            android:textSize="30dp" />
         <TextView
+            android:id="@+id/home_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_weight="1"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="0"
+            android:textSize="30dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/guest_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:enabled="true"
+            android:text="+1"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/home_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="+1"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ball"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            style="@style/second_text"
+            android:text="@string/ball" />
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/strike"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            style="@style/second_text"
+            android:text="@string/strike" />
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/out"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            style="@style/second_text"
+            android:text="@string/out" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/balls_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_weight="1"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="0"
+            android:textSize="20dp"/>
         <TextView
+            android:id="@+id/strikes_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_weight="1"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="0"
+            android:textSize="20dp"/>
         <TextView
+            android:id="@+id/outs_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_weight="1"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="0"
+            android:textSize="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/balls_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:text="+1"/>
+
+        <Button
+            android:id="@+id/strikes_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:text="+1"/>
+
+        <Button
+            android:id="@+id/outs_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:text="+1"/>
     </LinearLayout>
 </LinearLayout>
