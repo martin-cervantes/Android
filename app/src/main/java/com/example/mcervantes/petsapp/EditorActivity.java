@@ -30,7 +30,8 @@ import android.widget.Spinner;
 /**
  * Allows user to create a new pet or edit an existing one.
  */
-public class EditorActivity extends AppCompatActivity {
+public class EditorActivity extends AppCompatActivity
+{
 
     /** EditText field to enter the pet's name */
     private EditText mNameEditText;
@@ -51,7 +52,8 @@ public class EditorActivity extends AppCompatActivity {
     private int mGender = 0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
 
@@ -67,7 +69,8 @@ public class EditorActivity extends AppCompatActivity {
     /**
      * Setup the dropdown spinner that allows the user to select the gender of the pet.
      */
-    private void setupSpinner() {
+    private void setupSpinner()
+    {
         // Create adapter for spinner. The list options are from the String array it will use
         // the spinner will use the default layout
         ArrayAdapter genderSpinnerAdapter = ArrayAdapter.createFromResource(this,
@@ -80,16 +83,24 @@ public class EditorActivity extends AppCompatActivity {
         mGenderSpinner.setAdapter(genderSpinnerAdapter);
 
         // Set the integer mSelected to the constant values
-        mGenderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mGenderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
                 String selection = (String) parent.getItemAtPosition(position);
-                if (!TextUtils.isEmpty(selection)) {
-                    if (selection.equals(getString(R.string.gender_male))) {
+                if(!TextUtils.isEmpty(selection))
+                {
+                    if(selection.equals(getString(R.string.gender_male)))
+                    {
                         mGender = 1; // Male
-                    } else if (selection.equals(getString(R.string.gender_female))) {
+                    }
+                    else if(selection.equals(getString(R.string.gender_female)))
+                    {
                         mGender = 2; // Female
-                    } else {
+                    }
+                    else
+                    {
                         mGender = 0; // Unknown
                     }
                 }
@@ -97,14 +108,16 @@ public class EditorActivity extends AppCompatActivity {
 
             // Because AdapterView is an abstract class, onNothingSelected must be defined
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onNothingSelected(AdapterView<?> parent)
+            {
                 mGender = 0; // Unknown
             }
         });
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu options from the res/menu/menu_editor.xml file.
         // This adds menu items to the app bar.
         getMenuInflater().inflate(R.menu.menu_editor, menu);
@@ -112,9 +125,11 @@ public class EditorActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // User clicked on a menu option in the app bar overflow menu
-        switch (item.getItemId()) {
+        switch (item.getItemId())
+        {
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
                 // Do nothing for now
