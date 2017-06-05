@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -103,7 +102,7 @@ public class EditorActivity extends AppCompatActivity
                     }
                     else if(selection.equals(getString(R.string.gender_female)))
                     {
-                        mGender = PetEntry.GENDER_FAMALE; // Female
+                        mGender = PetEntry.GENDER_FEMALE; // Female
                     }
                     else
                     {
@@ -124,7 +123,7 @@ public class EditorActivity extends AppCompatActivity
     /**
      *  Get user input from editor and save new pet into database
      */
-    private void insertPet()
+   /* private void insertPet()
     {
         // Read from input fields
         // Use trim to eliminate leading or trailing white space
@@ -161,7 +160,7 @@ public class EditorActivity extends AppCompatActivity
             // Otherwise, the insertion was successful and we can display a toast with the row ID.
             Toast.makeText(this, "Pet saved with row id: " + newRowId, Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -181,7 +180,7 @@ public class EditorActivity extends AppCompatActivity
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
                     // Save pet to database
-                    insertPet();
+                   // insertPet();
 
                     // Exit activity
                     finish();

@@ -71,9 +71,6 @@ public class CatalogActivity extends AppCompatActivity
 
     private void displayDatabaseInfo()
     {
-        // Create and/or open a database to read from it
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-
         // Define a projection that specifies which columns from the database
         // you will actually use after this query.
         String[] projection = {
@@ -83,15 +80,15 @@ public class CatalogActivity extends AppCompatActivity
                 PetEntry.COLUMN_PET_GENDER,
                 PetEntry.COLUMN_PET_WEIGHT };
 
-        // Perform a query on the pets table
-        Cursor cursor = db.query(
-                PetEntry.TABLE_NAME,   // The table to query
-                projection,            // The columns to return
-                null,                  // The columns for the WHERE clause
-                null,                  // The values for the WHERE clause
-                null,                  // Don't group the rows
-                null,                  // Don't filter by row groups
-                null);                   // The sort order
+        // Perform a query on the provider using the ContentResolver.
+        // Use the {@link PetEntry#CONTENT_URI} to access the pet data.
+        Cursor cursor = getContentResolver().query(
+                PetEntry.CONTENT_URI,   // The content URI of the words table
+                projection,             // The columns to return for each row
+                null,                   // Selection criteria
+                null,                   // Selection criteria
+                null);                  // The sort order for the returned rows
+
 
         TextView displayView = (TextView) findViewById(R.id.text_view_pet);
 
@@ -145,7 +142,7 @@ public class CatalogActivity extends AppCompatActivity
         }
     }
 
-    private void insertPet()
+   /* private void insertPet()
     {
         // Gets the data repository in write mode
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -160,7 +157,8 @@ public class CatalogActivity extends AppCompatActivity
         long newRowID = db.insert(PetEntry.TABLE_NAME, null, values);
 
         Log.v("CatalogActivity", "New row ID " + newRowID);
-    }
+    }*/
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -178,7 +176,7 @@ public class CatalogActivity extends AppCompatActivity
         {
             // Respond to a click on the "Insert dummy data" menu option
             case R.id.action_insert_dummy_data:
-                    insertPet();
+                    //insertPet();
 
                     displayDatabaseInfo();
                 return true;
