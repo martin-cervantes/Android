@@ -1,4 +1,4 @@
-package com.example.mcervantes.petsapp.data;
+package com.example.mcervantes.pets.data;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
 
-import com.example.mcervantes.petsapp.data.PetContract.PetEntry;
+import com.example.mcervantes.pets.data.PetContract.PetEntry;
 /**
  * Created by mcervantes on 2/06/17.
  */

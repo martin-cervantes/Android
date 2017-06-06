@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.mcervantes.petsapp;
+package com.example.mcervantes.pets;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -30,7 +30,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.mcervantes.petsapp.data.PetContract.PetEntry;
+import com.example.mcervantes.pets.data.PetContract.PetEntry;
+import com.example.mcervantes.pets.data.PetDbHelper;
 
 
 /**
@@ -123,7 +124,7 @@ public class EditorActivity extends AppCompatActivity
     /**
      *  Get user input from editor and save new pet into database
      */
-   /* private void insertPet()
+   private void insertPet()
     {
         // Read from input fields
         // Use trim to eliminate leading or trailing white space
@@ -160,7 +161,7 @@ public class EditorActivity extends AppCompatActivity
             // Otherwise, the insertion was successful and we can display a toast with the row ID.
             Toast.makeText(this, "Pet saved with row id: " + newRowId, Toast.LENGTH_SHORT).show();
         }
-    }*/
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -180,7 +181,7 @@ public class EditorActivity extends AppCompatActivity
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
                     // Save pet to database
-                   // insertPet();
+                    insertPet();
 
                     // Exit activity
                     finish();

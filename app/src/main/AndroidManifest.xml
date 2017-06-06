@@ -11,7 +11,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.mcervantes.petsapp">
+          package="com.example.mcervantes.pets">
 
     <application
         android:allowBackup="true"
@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CatalogActivity"
+            android:name="com.example.mcervantes.pets.CatalogActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -28,18 +28,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditorActivity"
+            android:name="com.example.mcervantes.pets.EditorActivity"
             android:label="@string/editor_activity_title_new_pet"
-            android:parentActivityName=".CatalogActivity"
+            android:parentActivityName="com.example.mcervantes.pets.CatalogActivity"
             android:theme="@style/EditorTheme" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CatalogActivity" />
+                android:value="com.example.mcervantes.pets.CatalogActivity" />
         </activity>
         <provider
-            android:name=".data.PetProvider"
-            android:authorities="com.example.mcervantes.petsapp"
+            android:name="com.example.mcervantes.pets.data.PetProvider"
+            android:authorities="com.example.mcervantes.pets"
             android:exported="false" />
     </application>
 
