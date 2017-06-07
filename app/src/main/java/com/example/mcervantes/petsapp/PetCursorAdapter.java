@@ -1,26 +1,37 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.mcervantes.petsapp;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.v4.widget.CursorAdapter;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 import com.example.mcervantes.petsapp.data.PetContract.PetEntry;
 
 /**
- * Created by mcervantes on 6/06/17.
- */
-/**
  * {@link PetCursorAdapter} is an adapter for a list or grid view
  * that uses a {@link Cursor} of pet data as its data source. This adapter knows
  * how to create list items for each row of pet data in the {@link Cursor}.
  */
-public class PetCursorAdapter extends CursorAdapter
-{
+public class PetCursorAdapter extends CursorAdapter {
 
     /**
      * Constructs a new {@link PetCursorAdapter}.
@@ -28,8 +39,7 @@ public class PetCursorAdapter extends CursorAdapter
      * @param context The context
      * @param c       The cursor from which to get the data.
      */
-    public PetCursorAdapter(Context context, Cursor c)
-    {
+    public PetCursorAdapter(Context context, Cursor c) {
         super(context, c, 0 /* flags */);
     }
 
@@ -43,8 +53,7 @@ public class PetCursorAdapter extends CursorAdapter
      * @return the newly created list item view.
      */
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent)
-    {
+    public View newView(Context context, Cursor cursor, ViewGroup parent) {
         // Inflate a list item view using the layout specified in list_item.xml
         return LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
     }
@@ -60,8 +69,7 @@ public class PetCursorAdapter extends CursorAdapter
      *                correct row.
      */
     @Override
-    public void bindView(View view, Context context, Cursor cursor)
-    {
+    public void bindView(View view, Context context, Cursor cursor) {
         // Find individual views that we want to modify in the list item layout
         TextView nameTextView = (TextView) view.findViewById(R.id.name);
         TextView summaryTextView = (TextView) view.findViewById(R.id.summary);
@@ -76,8 +84,7 @@ public class PetCursorAdapter extends CursorAdapter
 
         // If the pet breed is empty string or null, then use some default text
         // that says "Unknown breed", so the TextView isn't blank.
-        if (TextUtils.isEmpty(petBreed))
-        {
+        if (TextUtils.isEmpty(petBreed)) {
             petBreed = context.getString(R.string.unknown_breed);
         }
 
