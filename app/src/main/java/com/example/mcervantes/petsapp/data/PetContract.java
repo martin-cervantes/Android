@@ -1,4 +1,4 @@
-package com.example.mcervantes.pets.data;
+package com.example.mcervantes.petsapp.data;
 
 import android.content.ContentResolver;
 import android.net.Uri;

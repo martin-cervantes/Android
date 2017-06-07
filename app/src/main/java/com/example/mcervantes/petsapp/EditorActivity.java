@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.mcervantes.pets;
+package com.example.mcervantes.petsapp;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -30,8 +31,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.mcervantes.pets.data.PetContract.PetEntry;
-import com.example.mcervantes.pets.data.PetDbHelper;
+import com.example.mcervantes.petsapp.data.PetContract.PetEntry;
+import com.example.mcervantes.petsapp.data.PetDbHelper;
 
 
 /**
@@ -39,6 +40,12 @@ import com.example.mcervantes.pets.data.PetDbHelper;
  */
 public class EditorActivity extends AppCompatActivity
 {
+    /** Identifier for the pet data loader */
+    private static final int EXISTING_PET_LOADER = 0;
+
+    /** Content URI for the existing pet (null if it's a new pet) */
+    private Uri mCurrentPetUri;
+
     /** EditText field to enter the pet's name */
     private EditText mNameEditText;
 
@@ -55,7 +62,10 @@ public class EditorActivity extends AppCompatActivity
      * Gender of the pet. The possible values are:
      * 0 for unknown gender, 1 for male, 2 for female.
      */
-    private int mGender = 0;
+    private int mGender = PetEntry.GENDER_UNKNOWN;
+
+    /** Boolean flag that keeps track of whether the pet has been edited (true) or not (false) */
+    private boolean mPetHasChanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

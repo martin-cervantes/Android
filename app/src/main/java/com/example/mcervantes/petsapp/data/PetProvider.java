@@ -1,4 +1,4 @@
-package com.example.mcervantes.pets.data;
+package com.example.mcervantes.petsapp.data;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
 
-import com.example.mcervantes.pets.data.PetContract.PetEntry;
+import com.example.mcervantes.petsapp.data.PetContract.PetEntry;
 /**
  * Created by mcervantes on 2/06/17.
  */
@@ -28,6 +28,13 @@ public class PetProvider extends ContentProvider
     /** Database helper object */
     private PetDbHelper mDbHelper;
 
+    /**
+     * UriMatcher object to match a content URI to a corresponding code.
+     * The input passed into the constructor represents the code to return for the root URI.
+     * It's common to use NO_MATCH as the input for this case.
+     */
+    private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
     @Override
     public boolean onCreate()
     {
@@ -35,12 +42,6 @@ public class PetProvider extends ContentProvider
         return true;
     }
 
-    /**
-     * UriMatcher object to match a content URI to a corresponding code.
-     * The input passed into the constructor represents the code to return for the root URI.
-     * It's common to use NO_MATCH as the input for this case.
-     */
-    private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     // Static initializer. This is run the first time anything is called from this class.
     static
@@ -104,6 +105,12 @@ public class PetProvider extends ContentProvider
                 throw new IllegalArgumentException("Cannot query unknown URI " + uri);
         }
 
+        // Set notification URI on the Cursor,
+        // so we know what content URI the Cursor was created for.
+        // If the data at this URI changes, then we know we need to update the Cursor.
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+
+        // Return the cursor
         return cursor;
     }
 
@@ -160,6 +167,9 @@ public class PetProvider extends ContentProvider
             Log.e(LOG_TAG, "Failed to insert row for " + uri);
             return null;
         }
+
+        // Notify all listeners that the data has changed for the pet content URI
+        getContext().getContentResolver().notifyChange(uri, null);
 
         // Return the new URI with the ID (of the newly inserted row) appended at the end
         return ContentUris.withAppendedId(uri, id);

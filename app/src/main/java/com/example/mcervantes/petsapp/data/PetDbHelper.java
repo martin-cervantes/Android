@@ -1,11 +1,11 @@
-package com.example.mcervantes.pets.data;
+package com.example.mcervantes.petsapp.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-import com.example.mcervantes.pets.data.PetContract.PetEntry;
+import com.example.mcervantes.petsapp.data.PetContract.PetEntry;
 /**
  * Created by mcervantes on 30/05/17.
  */
