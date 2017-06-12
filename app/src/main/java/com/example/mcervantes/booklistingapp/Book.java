@@ -3,20 +3,16 @@ package com.example.mcervantes.booklistingapp;
 public class Book
 {
     private String title;
-    
-    private String description;
-    
-    private String volumeCount;
+
+    private String author;
     
     private String selfLink;
     
-    public Book(String t, String d, String v, String s)
+    public Book(String t, String a, String s)
     {
         title = t;
-        
-        description = d;
-        
-        volumeCount = v;
+
+        author = a;
         
         selfLink = s;
     }
@@ -25,19 +21,14 @@ public class Book
     {
         return title;
     }
-    
-    public String getDescription()
+
+    public String getAuthor()
     {
-        return description;
-    }
-    
-    public String getVolumeCount()
-    {
-        return volumeCount;
+        return author;
     }
     
     public String getSelfLink()
     {
-        retunr selfLink;
+        return selfLink;
     }
 }
