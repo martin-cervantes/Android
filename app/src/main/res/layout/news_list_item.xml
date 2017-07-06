@@ -19,12 +19,12 @@
         android:text="This is a news story title. This is suppose to be long"/>
 
     <TextView
-        android:id="@+id/author"
+        android:id="@+id/section"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="Firstname Lastname"/>
+        android:text="Politics"/>
 
 </LinearLayout>

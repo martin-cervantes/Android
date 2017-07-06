@@ -6,24 +6,33 @@ package com.example.mcervantes.newsapp;
 
 public class News
 {
-  private String content;
-  
-  private String tag;
-  
-  private String date;
-  
-  public String getContent()
+  private String section;
+
+  private String title;
+
+  private String url;
+
+  public News(String sec, String ti, String u)
   {
-    return content;
+    section = sec;
+
+    title = ti;
+
+    url = u;
   }
-  
-  public String getTag()
+
+  public String getSEction()
   {
-    return tag;
+    return section;
   }
-  
-  public String getDate()
+
+  public String getTitle()
   {
-    return date;
+    return title;
+  }
+
+  public String getUrl()
+  {
+    return url;
   }
 }
