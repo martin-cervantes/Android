@@ -25,6 +25,7 @@ import java.util.List;
 
 public class NewsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>>//, SharedPreferences.OnSharedPreferenceChangeListener
 {
+    /** Tag for the log messages */
     private static final String LOG_TAG = NewsActivity.class.getSimpleName();
 
     private static final String GUARDIAN_REQUEST_URL = "http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01&api-key=test";
@@ -35,7 +36,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
      */
     private static final int NEWS_LOADER_ID = 1;
 
-    /** Adapter for the list of earthquakes */
+    /** Adapter for the list of news */
     private NewsAdapter mAdapter;
 
     /** TextView that is displayed when the list is empty */
@@ -53,7 +54,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
-        // Create a new adapter that takes an empty list of earthquakes as input
+        // Create a new adapter that takes an empty list of news as input
         mAdapter = new NewsAdapter(this, new ArrayList<News>());
 
         // Set the adapter on the {@link ListView}
@@ -79,7 +80,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
                 // Convert the String URL into a URI object (to pass into the Intent constructor)
                 Uri newsUri = Uri.parse(currentNew.getUrl());
 
-                // Create a new intent to view the earthquake URI
+                // Create a new intent to view the news URI
                 Intent websiteIntent = new Intent(Intent.ACTION_VIEW, newsUri);
 
                 // Send the intent to launch a new activity
@@ -137,13 +138,13 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No earthquakes found."
+        // Set empty state text to display "No news found."
         mEmptyStateTextView.setText(R.string.no_news);
 
-        // Clear the adapter of previous earthquake data
+        // Clear the adapter of previous news data
         mAdapter.clear();
 
-        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // If there is a valid list of {@link News}, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (news != null && !news.isEmpty())
         {

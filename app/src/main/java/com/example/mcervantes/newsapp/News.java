@@ -1,9 +1,5 @@
 package com.example.mcervantes.newsapp;
 
-/**
- * Created by mcervantes on 6/16/17.
- */
-
 public class News
 {
   private String section;
@@ -21,7 +17,7 @@ public class News
     url = u;
   }
 
-  public String getSEction()
+  public String getSection()
   {
     return section;
   }
