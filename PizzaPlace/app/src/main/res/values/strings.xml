@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Pizza Place</string>
+    <string name="size">Size</string>
+    <string name="toppings">Toppings</string>
+
+    <string name="pepperoni">Pepperoni</string>
+    <string name="mushrooms">Mushrooms</string>
+    <string name="sausage">Sausage</string>
+    <string name="bacon">Beacon</string>
+    <string name="xCheese">Extra Cheese</string>
+    <string name="onions">Onions</string>
+
+    <string name="small">Small</string>
+    <string name="medium">Medium</string>
+    <string name="large">Large</string>
+    <string name="how_many_toppings">How many toppings?</string>
+    <string name="uno">1</string>
+    <string name="dos">2</string>
+    <string name="tres">3</string>
+    <string name="cuatro">4</string>
+
+</resources>
