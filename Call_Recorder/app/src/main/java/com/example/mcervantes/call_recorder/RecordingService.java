@@ -48,35 +48,33 @@ public class RecordingService extends Service
             @Override
             public void onCallStateChanged(int state, String phoneNumber)
             {
-                super.onCallStateChanged(state, phoneNumber)
+                if(TelephonyManager.CALL_STATE_IDLE == state && rec ==  null)
                 {
-                    if(TelephonyManager.CALL_STATE_IDLE == state && rec ==  null)
+                    rec.stop();
+                    rec.reset();
+                    rec.release();
+
+                    recordsStarted = false;
+
+                    stopSelf();
+                }
+                else if(TelephonyManager.CALL_STATE_OFFHOOK == state)
+                {
+                    try
                     {
-                        rec.stop();
-                        rec.reset();
-                        rec.release();
-
-                        recordsStarted = false;
-
-                        stopSelf();
+                        rec.prepare();
                     }
-                    else if(TelephonyManager.CALL_STATE_OFFHOOK == state)
+                    catch (IOException ex)
                     {
-                        try
-                        {
-                            rec.prepare();
-                        }
-                        catch (IOException ex)
-                        {
-                            ex.printStackTrace();
-                        }
-
-                        rec.start();
-
-                        recordsStarted = true;
+                        ex.printStackTrace();
                     }
+
+                    rec.start();
+
+                    recordsStarted = true;
                 }
             }
+
         }, PhoneStateListener.LISTEN_CALL_STATE);
 
         return START_STICKY;
