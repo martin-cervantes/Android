@@ -15,7 +15,7 @@ import android.net.Uri;
 
 public class MainActivity extends AppCompatActivity
 {
-    int quantity = 0;
+    int quantity = 1;
     boolean hasWhippedCream = false;
     boolean hasChololate = false;
     String name = "Martin Cervantes";
