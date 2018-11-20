@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Baseball Score Keeper</string>
+
+    <string name="guest">Guest</string>
+    <string name="home">Home</string>
+    <string name="inning">Inning</string>
+    <string name="ball">Ball</string>
+    <string name="strike">Strike</string>
+    <string name="out">Out</string>
+
+    <string name="base_on_balls">Base on balls</string>
+    <string name="strikeout">Strikeout</string>
+    <string name="half_inning">Half-inning</string>
+    <string name="new_inning">New inning</string>
+</resources>
