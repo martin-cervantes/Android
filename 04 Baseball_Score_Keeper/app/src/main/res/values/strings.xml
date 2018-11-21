@@ -7,6 +7,9 @@
     <string name="ball">Ball</string>
     <string name="strike">Strike</string>
     <string name="out">Out</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="plus_one">+1</string>
 
     <string name="base_on_balls">Base on balls</string>
     <string name="strikeout">Strikeout</string>
