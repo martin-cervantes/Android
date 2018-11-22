@@ -18,14 +18,62 @@ public class MainActivity extends AppCompatActivity
     int strikes_counter = 0;
     int balls_counter = 0;
 
+    public void Show()
+    {
+        TextView guestPoints = (TextView) findViewById(R.id.guest_points);
+        guestPoints.setText(String.valueOf(guest_points));
+
+        TextView homePoints = (TextView) findViewById(R.id.home_points);
+        homePoints.setText(String.valueOf(home_points));
+
+        TextView innersCounter = (TextView) findViewById(R.id.inning_counter);
+        innersCounter.setText(String.valueOf(innings_counter));
+
+        TextView outsCounter = (TextView) findViewById(R.id.outs_counter);
+        outsCounter.setText(String.valueOf(outs_counter));
+
+        TextView strikesCounter = (TextView) findViewById(R.id.strikes_counter);
+        strikesCounter.setText(String.valueOf(strikes_counter));
+
+        TextView ballsCounter = (TextView) findViewById(R.id.balls_counter);
+        ballsCounter.setText(String.valueOf(balls_counter));
+    }
+
+    public void outsCounter()
+    {
+        outs_counter += 1;
+
+        if(outs_counter == 3)
+        {
+            outs_counter = 0;
+            balls_counter = 0;
+            strikes_counter = 0;
+
+            he = !he;
+
+            Button guestButton = (Button) findViewById(R.id.guest_button);
+            guestButton.setEnabled(!guestButton.isEnabled());
+            Button homeButton = (Button) findViewById(R.id.home_button);
+            homeButton.setEnabled(!homeButton.isEnabled());
+
+            if(he)
+            {
+                innings_counter += 1;
+
+                Toast.makeText(MainActivity.this, R.string.new_inning, Toast.LENGTH_SHORT).show();
+            }
+            else
+                Toast.makeText(MainActivity.this, R.string.half_inning, Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Button guestButton = (Button) findViewById(R.id.guest_button);
-
         guestButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -33,14 +81,11 @@ public class MainActivity extends AppCompatActivity
             {
                 guest_points += 1;
 
-                TextView guestPoints = (TextView) findViewById(R.id.guest_points);
-
-                guestPoints.setText(String.valueOf(guest_points));
+                Show();
             }
         });
 
         Button homeButton = (Button) findViewById(R.id.home_button);
-
         homeButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -48,129 +93,62 @@ public class MainActivity extends AppCompatActivity
             {
                 home_points += 1;
 
-                TextView homePoints = (TextView) findViewById(R.id.home_points);
-
-                homePoints.setText(String.valueOf(home_points));
-            }
-        });
-
-        Button ballsButton = (Button) findViewById(R.id.balls_button);
-
-        ballsButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                if (balls_counter < 4)
-                    balls_counter += 1;
-
-                if (balls_counter == 4)
-                {
-                    balls_counter = 0;
-
-                    strikes_counter = 0;
-
-                    Toast.makeText(MainActivity.this, R.string.base_on_balls, Toast.LENGTH_SHORT).show();
-
-                    TextView strikesCounter = (TextView) findViewById(R.id.strikes_counter);
-
-                    strikesCounter.setText(String.valueOf(strikes_counter));
-                }
-
-                TextView ballsCounter = (TextView) findViewById(R.id.balls_counter);
-
-                ballsCounter.setText(String.valueOf(balls_counter));
-            }
-        });
-
-        Button strikesButton = (Button) findViewById(R.id.strikes_button);
-
-        strikesButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                if(strikes_counter < 3)
-                    strikes_counter += 1;
-
-                if(strikes_counter == 3)
-                {
-                    balls_counter = 0;
-
-                    strikes_counter = 0;
-
-                    Toast.makeText(MainActivity.this, R.string.strikeout, Toast.LENGTH_SHORT).show();
-
-                    TextView ballsCounter = (TextView) findViewById(R.id.balls_counter);
-
-                    ballsCounter.setText(String.valueOf(balls_counter));
-
-                    outsCounter();
-                }
-
-                TextView strikesCounter = (TextView) findViewById(R.id.strikes_counter);
-
-                strikesCounter.setText(String.valueOf(strikes_counter));
+                Show();
             }
         });
 
         Button outsButton = (Button) findViewById(R.id.outs_button);
-
         outsButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 outsCounter();
+
+                Show();
             }
         });
-    }
 
-    public void outsCounter()
-    {
-        if(outs_counter < 3)
-            outs_counter += 1;
-
-        if(outs_counter == 3 && he == true)
+        Button strikesButton = (Button) findViewById(R.id.strikes_button);
+        strikesButton.setOnClickListener(new View.OnClickListener()
         {
-            outs_counter = 0;
+            @Override
+            public void onClick(View v)
+            {
+                strikes_counter += 1;
 
-            he = false;
+                if(strikes_counter == 3)
+                {
+                    balls_counter = 0;
+                    strikes_counter = 0;
 
-            Toast.makeText(MainActivity.this, R.string.half_inning, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.strikeout, Toast.LENGTH_SHORT).show();
 
-            Button homeButton = (Button) findViewById(R.id.home_button);
+                    outsCounter();
+                }
 
-            homeButton.setEnabled(true);
+                Show();
+            }
+        });
 
-            Button guestButton = (Button) findViewById(R.id.guest_button);
-
-            guestButton.setEnabled(false);
-        }
-        else if(outs_counter == 3 && he == false)
+        Button ballsButton = (Button) findViewById(R.id.balls_button);
+        ballsButton.setOnClickListener(new View.OnClickListener()
         {
-            outs_counter = 0;
+            @Override
+            public void onClick(View v)
+            {
+                balls_counter += 1;
 
-            he = true;
+                if (balls_counter == 4)
+                {
+                    balls_counter = 0;
+                    strikes_counter = 0;
 
-            innings_counter += 1;
+                    Toast.makeText(MainActivity.this, R.string.base_on_balls, Toast.LENGTH_SHORT).show();
+                }
 
-            Toast.makeText(MainActivity.this, R.string.new_inning, Toast.LENGTH_SHORT).show();
-
-            Button homeButton = (Button) findViewById(R.id.home_button);
-
-            homeButton.setEnabled(false);
-
-            Button guestButton = (Button) findViewById(R.id.guest_button);
-
-            guestButton.setEnabled(true);
-
-            TextView innersCounter = (TextView) findViewById(R.id.inning_counter);
-
-            innersCounter.setText(String.valueOf(innings_counter));
-        }
-
-        TextView outsCounter = (TextView) findViewById(R.id.outs_counter);
-
-        outsCounter.setText(String.valueOf(outs_counter));
+                Show();
+            }
+        });
     }
 }
