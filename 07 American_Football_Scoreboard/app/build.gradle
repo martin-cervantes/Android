@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.example.mcervantes.birthday_card"
+        applicationId "com.example.mcervantes.american_football_scoreboard"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1

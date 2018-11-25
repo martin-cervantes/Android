@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">American Football Scoreboard</string>
+
+    <string name="guest">Guest</string>
+    <string name="home">Home</string>
+    <string name="down">Down</string>
+    <string name="to_go">To Go</string>
+    <string name="ball_on">Ball On</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="plus_one">+1</string>
+</resources>
