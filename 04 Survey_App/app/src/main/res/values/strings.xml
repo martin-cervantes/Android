@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Survey App</string>
+
+    <string name="attributes">Attributes</string>
+    <string name="very1">Very Satisfied</string>
+    <string name="satisfied">Satisfied</string>
+    <string name="neutral">Neutral</string>
+    <string name="dissatisfied">Dissatisfied</string>
+    <string name="very2">Very Dissatisfied</string>
+
+    <string name="question1">Please rate us on the following attributes:</string>
+    <string name="service">Customer Service</string>
+    <string name="quality">Quality</string>
+    <string name="price">Price</string>
+    <string name="needs">Customer Needs</string>
+    <string name="staff">Staff Behavior</string>
+
+    <string name="send">Send</string>
+</resources>

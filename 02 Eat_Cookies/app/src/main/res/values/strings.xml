@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Eat Cookies</string>
+
+    <string name="status">Im so hungry</string>
 </resources>

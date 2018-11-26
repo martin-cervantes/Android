@@ -13,7 +13,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:scaleType="centerCrop"
-        android:src="@drawable/before_cookies" />
+        android:src="@drawable/before_cookies"
+        android:contentDescription="@string/app_name"/>
 
     <TextView
         android:id="@+id/status_text_view"
@@ -22,7 +23,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        android:text="I'm so hungry"
+        android:text="@string/status"
         android:textColor="@android:color/white"
         android:textSize="34sp" />
 
@@ -30,7 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="EAT COOKIE"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
         android:onClick="eatCookie"/>
 
 </LinearLayout>
