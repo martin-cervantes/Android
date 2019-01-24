@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity
         hasChololate = ChololateCheckBox.isChecked();
 
         EditText nameEditText = (EditText) findViewById(R.id.name);
-        String Name = nameEditText.getText().toString();
 
-        if (!Name.equals(""))
+
+        if (!nameEditText.getText().toString().equals(""))
         {
             name = nameEditText.getText().toString();
         }
