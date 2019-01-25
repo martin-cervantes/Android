@@ -56,10 +56,6 @@ public class MainActivity extends AppCompatActivity
             {
                 if(keyCode == KeyEvent.KEYCODE_DEL)
                 {
-                    EditText EditText_B = (EditText) findViewById(R.id.B);
-                    EditText EditText_C = (EditText) findViewById(R.id.C);
-                    TextView TextView_X = (TextView) findViewById(R.id.X);
-
                     EditText_A.setText("");
                     EditText_B.setText("");
                     EditText_C.setText("");
