@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,15 +45,19 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
         Button boton = (Button) findViewById(R.id.button);
-//        boton.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                Toast.makeText(MainActivity.this,"Button Clicked", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        boton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Toast.makeText(MainActivity.this,"Button Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         boton.setOnLongClickListener(new View.OnLongClickListener()
         {
@@ -62,15 +69,20 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-//        boton.setOnFocusChangeListener(new View.OnFocusChangeListener()
-//        {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus)
-//            {
-//                Toast.makeText(MainActivity.this, "Focus", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+        ImageView image = (ImageView) findViewById(R.id.image);
+        image.setOnTouchListener(new View.OnTouchListener()
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                Toast.makeText(MainActivity.this, "Touched", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
 
 
     }
