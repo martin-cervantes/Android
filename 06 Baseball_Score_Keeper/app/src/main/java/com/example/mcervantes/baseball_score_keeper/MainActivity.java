@@ -150,5 +150,24 @@ public class MainActivity extends AppCompatActivity
                 Show();
             }
         });
+
+        Button resetButton = (Button) findViewById(R.id.Reset);
+        resetButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                guest_points = 0;
+                home_points = 0;
+                he = true;
+                innings_counter = 1;
+                outs_counter = 0;
+                strikes_counter = 0;
+                balls_counter = 0;
+
+                Show();
+
+            }
+        });
     }
 }

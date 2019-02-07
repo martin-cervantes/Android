@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Eat Cookies</string>
+    <string name="reset">Reset</string>
 
-    <string name="status">Im so hungry</string>
+    <string name="status_before">I\'m so hungry</string>
+    <string name="status_after">I\'m so full</string>
 </resources>
