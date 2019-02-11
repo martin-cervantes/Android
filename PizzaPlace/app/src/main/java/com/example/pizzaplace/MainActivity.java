@@ -1,7 +1,8 @@
-package com.example.mcervantes.pizzaplace;
+package com.example.pizzaplace;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;

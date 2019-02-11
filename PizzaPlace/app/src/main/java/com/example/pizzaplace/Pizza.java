@@ -1,8 +1,4 @@
-package com.example.mcervantes.pizzaplace;
-
-/**
- * Created by mcervantes on 4/06/17.
- */
+package com.example.pizzaplace;
 
 public class Pizza
 {
