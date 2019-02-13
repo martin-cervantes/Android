@@ -27,7 +27,7 @@
                 android:width="100dp"
                 android:hint="A"
                 android:nextFocusDown="@id/B"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
                 android:layout_margin="16dp"
                 android:hint="B"
                 android:nextFocusDown="@id/C"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:id="@+id/B" />
         </LinearLayout>
 
@@ -60,7 +60,7 @@
                 android:layout_margin="16dp"
                 android:hint="C"
                 android:nextFocusDown="@id/calcular"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:id="@+id/C" />
 
             <TextView

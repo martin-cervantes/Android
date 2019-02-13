@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gatow :3</string>
+
+    <string name="equis">X</string>
+    <string name="bolita">O</string>
+
+    <string name="reset">Reset</string>
+
+    <string name="message">Tenemos un ganador</string>
+</resources>
