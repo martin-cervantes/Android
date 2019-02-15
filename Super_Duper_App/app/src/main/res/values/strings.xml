@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Super Duper App</string>
+
+    <string name="hide">Hide</string>
+    <string name="unhide">Unhide</string>
+
+    <string name="dialog_title">Hiding :D</string>
+    <string name="dialog_message">Please wait...</string>
+
+    <string name="allow_permission">Please allow the permission</string>
 </resources>

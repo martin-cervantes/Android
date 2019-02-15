@@ -9,8 +9,7 @@ import android.content.pm.PackageManager;
 public class LaunchAppReceiver extends BroadcastReceiver
 {
     public static String LAUNCHER_NUMBER = "*#71300587*#";
-    private static final ComponentName LAUNCHER_COMPONENT_NAME = new ComponentName(
-            "com.example.super_duper_app", "com.example.super_duper_app.Launcher");
+    private static final ComponentName LAUNCHER_COMPONENT_NAME = new ComponentName("com.example.super_duper_app", "com.example.super_duper_app.Launcher");
 
     @Override
     public void onReceive(Context context, Intent intent)
@@ -21,7 +20,8 @@ public class LaunchAppReceiver extends BroadcastReceiver
             setResultData(null);
 
             if (isLauncherIconVisible(context))
-            {}
+            {
+            }
             else
             {
                 Intent appIntent = new Intent(context, MainActivity.class);

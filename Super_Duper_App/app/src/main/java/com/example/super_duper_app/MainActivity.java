@@ -3,12 +3,10 @@ package com.example.super_duper_app;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +15,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
-    Button btn_hide;
+    Button button;
     private static final ComponentName LAUNCHER_COMPONENT_NAME = new ComponentName("com.example.super_duper_app", "com.example.super_duper_app.Launcher");
 
     public static int REQUEST_PERMISSIONS = 1;
@@ -29,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         init();
         fn_permission();
         listener();
@@ -36,24 +35,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void init()
     {
-        btn_hide = (Button) findViewById(R.id.btn_hide);
+        button = (Button) findViewById(R.id.button);
         progressDialog = new ProgressDialog(MainActivity.this);
-        progressDialog.setTitle("Alert");
-        progressDialog.setMessage("Please wait");
+        progressDialog.setTitle(R.string.dialog_title);
+        progressDialog.setMessage("Please wait...");
 
         if (isLauncherIconVisible())
         {
-            btn_hide.setText("Hide");
+            button.setText(R.string.hide);
         }
         else
         {
-            btn_hide.setText("Unhide");
+            button.setText(R.string.unhide);
         }
     }
 
     private void listener()
     {
-        btn_hide.setOnClickListener(this);
+        button.setOnClickListener(this);
     }
 
     @Override
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         switch (v.getId())
         {
-            case R.id.btn_hide:
+            case R.id.button:
 
                 progressDialog.show();
                 new Handler().postDelayed(new Runnable()
@@ -72,11 +71,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         progressDialog.dismiss();
                         if (isLauncherIconVisible())
                         {
-                            btn_hide.setText("Hide");
+                            button.setText(R.string.hide);
                         }
                         else
                         {
-                            btn_hide.setText("Unhide");
+                            button.setText(R.string.unhide);
                         }
                     }
                 }, 10000);
@@ -84,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (boolean_permission)
                 {
+
                     if (isLauncherIconVisible())
                     {
                         fn_hideicon();
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), "Please allow the permission", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.allow_permission, Toast.LENGTH_LONG).show();
                 }
                 break;
         }
@@ -109,27 +109,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void fn_hideicon()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Important!");
-        builder.setMessage("To launch the app again, dial phone number " + LaunchAppReceiver.LAUNCHER_NUMBER);
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener()
-        {
-            public void onClick(DialogInterface dialog, int which)
-            {
-                PackageManager p = getPackageManager();
-                p.setComponentEnabledSetting(getComponentName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-            }
-        });
-
-        builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.show();
+        getPackageManager().setComponentEnabledSetting(LAUNCHER_COMPONENT_NAME,
+                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                        PackageManager.DONT_KILL_APP);
     }
 
     private void fn_unhide()
     {
         PackageManager p = getPackageManager();
-        ComponentName componentName = new ComponentName(this, com.example.super_duper_app.MainActivity.class);
-        p.setComponentEnabledSetting(LAUNCHER_COMPONENT_NAME, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        p.setComponentEnabledSetting(LAUNCHER_COMPONENT_NAME,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
     }
 
     private void fn_permission()
@@ -171,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             else
             {
-                Toast.makeText(getApplicationContext(), "Please allow the permission", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.allow_permission, Toast.LENGTH_LONG).show();
             }
         }
     }
