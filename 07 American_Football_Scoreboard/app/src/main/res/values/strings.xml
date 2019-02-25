@@ -3,10 +3,23 @@
 
     <string name="guest">Guest</string>
     <string name="home">Home</string>
+
+    <string name="switchs">Switch</string>
     <string name="down">Down</string>
     <string name="to_go">To Go</string>
     <string name="ball_on">Ball On</string>
+
+    <string name="touchdown">Touchdown +6</string>
+    <string name="extra_point">Extra point +1</string>
+    <string name="two_point">Two-point convert +2</string>
+
+    <string name="field_goal">Field goal +3</string>
+    <string name="safety">Safety +2</string>
+
     <string name="zero">0</string>
     <string name="one">1</string>
+    <string name="ten">10</string>
     <string name="plus_one">+1</string>
+
+    <string name="reset">Reset</string>
 </resources>
