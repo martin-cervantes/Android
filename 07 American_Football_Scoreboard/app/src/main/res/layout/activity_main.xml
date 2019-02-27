@@ -7,6 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             style="@style/primary_text"
             android:text="@string/home" />
@@ -14,11 +15,13 @@
         <TextView
             style="@style/primary_text"
             android:text="@string/guest" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/home_points"
             style="@style/scores"
@@ -27,12 +30,14 @@
         <TextView
             android:id="@+id/guest_points"
             style="@style/scores" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <Button
             android:id="@+id/touchdown"
             style="@style/scoring_buttons"
@@ -47,7 +52,6 @@
             android:id="@+id/safety"
             style="@style/scoring_buttons"
             android:text="@string/safety" />
-
 
     </LinearLayout>
 
@@ -66,11 +70,13 @@
             style="@style/scoring_buttons"
             android:layout_weight="1"
             android:text="@string/switchs"/>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             style="@style/second_text"
             android:text="@string/down" />
@@ -84,16 +90,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/downs_counter"
             style="@style/second_scores"
+            android:layout_weight="4"
             android:text="@string/one"/>
 
-        <EditText
+        <Button
+            android:id="@+id/less_one"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/less_one"/>
+
+        <TextView
             android:id="@+id/to_go_counter"
-            style="@style/second_scores"
+            style="@style/second_scores1"
+            android:selectAllOnFocus="true"
+            android:layout_weight="2"
             android:inputType="number"
             android:text="@string/ten"/>
+
+        <Button
+            android:id="@+id/plus_one"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/plus_one"/>
+
     </LinearLayout>
 
     <Button

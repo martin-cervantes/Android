@@ -18,24 +18,27 @@ public class MainActivity extends AppCompatActivity
     int strikes_counter = 0;
     int balls_counter = 0;
 
+    TextView guestPoints;
+    TextView homePoints;
+    TextView innersCounter;
+    TextView outsCounter;
+    TextView strikesCounter;
+    TextView ballsCounter;
+
+    Button guestButton;
+    Button homeButton;
+    Button outsButton;
+    Button strikesButton;
+    Button ballsButton;
+    Button resetButton;
+
     public void Show()
     {
-        TextView guestPoints = (TextView) findViewById(R.id.guest_points);
         guestPoints.setText(String.valueOf(guest_points));
-
-        TextView homePoints = (TextView) findViewById(R.id.home_points);
         homePoints.setText(String.valueOf(home_points));
-
-        TextView innersCounter = (TextView) findViewById(R.id.inning_counter);
         innersCounter.setText(String.valueOf(innings_counter));
-
-        TextView outsCounter = (TextView) findViewById(R.id.outs_counter);
         outsCounter.setText(String.valueOf(outs_counter));
-
-        TextView strikesCounter = (TextView) findViewById(R.id.strikes_counter);
         strikesCounter.setText(String.valueOf(strikes_counter));
-
-        TextView ballsCounter = (TextView) findViewById(R.id.balls_counter);
         ballsCounter.setText(String.valueOf(balls_counter));
     }
 
@@ -51,9 +54,7 @@ public class MainActivity extends AppCompatActivity
 
             he = !he;
 
-            Button guestButton = (Button) findViewById(R.id.guest_button);
             guestButton.setEnabled(!guestButton.isEnabled());
-            Button homeButton = (Button) findViewById(R.id.home_button);
             homeButton.setEnabled(!homeButton.isEnabled());
 
             if(he)
@@ -73,7 +74,20 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button guestButton = (Button) findViewById(R.id.guest_button);
+        guestPoints = findViewById(R.id.guest_points);
+        homePoints = findViewById(R.id.home_points);
+        innersCounter = findViewById(R.id.inning_counter);
+        outsCounter = findViewById(R.id.outs_counter);
+        strikesCounter = findViewById(R.id.strikes_counter);
+        ballsCounter = findViewById(R.id.balls_counter);
+
+        guestButton = findViewById(R.id.guest_button);
+        homeButton = findViewById(R.id.home_button);
+        outsButton = findViewById(R.id.outs_button);
+        strikesButton = findViewById(R.id.strikes_button);
+        ballsButton = findViewById(R.id.balls_button);
+        resetButton = findViewById(R.id.reset);
+
         guestButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -85,7 +99,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button homeButton = (Button) findViewById(R.id.home_button);
         homeButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -97,7 +110,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button outsButton = (Button) findViewById(R.id.outs_button);
         outsButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -109,7 +121,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button strikesButton = (Button) findViewById(R.id.strikes_button);
         strikesButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -131,7 +142,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button ballsButton = (Button) findViewById(R.id.balls_button);
         ballsButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -151,7 +161,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button resetButton = (Button) findViewById(R.id.Reset);
         resetButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -166,7 +175,6 @@ public class MainActivity extends AppCompatActivity
                 balls_counter = 0;
 
                 Show();
-
             }
         });
     }

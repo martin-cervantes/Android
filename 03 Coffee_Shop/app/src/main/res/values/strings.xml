@@ -20,4 +20,8 @@
     <string name="thanks">Thank you!! :D</string>
     <string name="less_than_error">You cannot have less than 1 coffee :(</string>
     <string name="more_than_error">You cannot have more than 50 coffees :(</string>
+
+    <string name="plus">+</string>
+    <string name="one">1</string>
+    <string name="less">-</string>
 </resources>

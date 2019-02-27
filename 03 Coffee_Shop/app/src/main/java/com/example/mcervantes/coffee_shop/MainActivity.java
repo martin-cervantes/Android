@@ -111,6 +111,6 @@ public class MainActivity extends AppCompatActivity
     public void displayQuantity()
     {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity);
-        quantityTextView.setText("" + quantity);
+        quantityTextView.setText(String.valueOf(quantity));
     }
 }

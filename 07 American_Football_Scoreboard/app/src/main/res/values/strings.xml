@@ -19,6 +19,7 @@
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="ten">10</string>
+    <string name="less_one">-1</string>
     <string name="plus_one">+1</string>
 
     <string name="reset">Reset</string>
