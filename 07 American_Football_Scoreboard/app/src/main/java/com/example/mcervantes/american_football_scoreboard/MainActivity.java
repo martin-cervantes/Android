@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity
         guest_points = 0;
         downs_counter = 1;
         to_go_counter = 10;
+
+        down.setEnabled(true);
+        less_one.setEnabled(true);
+        plus_one.setEnabled(true);
     }
 
     public void Switch()
@@ -53,6 +57,8 @@ public class MainActivity extends AppCompatActivity
         touchdown.setText(R.string.touchdown);
         field_goal.setText(R.string.field_goal);
         down.setEnabled(true);
+        less_one.setEnabled(true);
+        plus_one.setEnabled(true);
     }
 
     public void Show(int message)
@@ -117,6 +123,8 @@ public class MainActivity extends AppCompatActivity
                     touchdown.setText(R.string.two_point);
                     field_goal.setText(R.string.extra_point);
                     down.setEnabled(false);
+                    less_one.setEnabled(false);
+                    plus_one.setEnabled(false);
                 }
                 else
                 {
@@ -204,8 +212,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                to_go_counter--;
-                Show(R.string.less_one);
+
+                if(to_go_counter > 1)
+                {
+                    to_go_counter--;
+
+                    Show(R.string.less_one);
+                }
             }
         });
 
@@ -214,8 +227,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                to_go_counter++;
-                Show(R.string.plus_one);
+
+                if(to_go_counter < 100)
+                {
+                    to_go_counter++;
+
+                    Show(R.string.plus_one);
+                }
             }
         });
 
