@@ -47,9 +47,7 @@ public class MainActivity extends AppCompatActivity
     public void Switch()
     {
         home = !home;
-
         downs_counter = 1;
-
         to_go_counter = 10;
 
         Show(R.string.switchs);
@@ -88,8 +86,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Reset();
-
         TV_home_points = findViewById(R.id.home_points);
         TV_guest_points = findViewById(R.id.guest_points);
         TV_downs_counter = findViewById(R.id.downs_counter);
@@ -105,6 +101,7 @@ public class MainActivity extends AppCompatActivity
 
         reset = findViewById(R.id.reset);
 
+        Reset();
 
         touchdown.setOnClickListener(new View.OnClickListener()
         {
