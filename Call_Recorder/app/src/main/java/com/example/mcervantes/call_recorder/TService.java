@@ -49,6 +49,7 @@ public class TService extends Service
         filter.addAction(ACTION_OUT);
         filter.addAction(ACTION_IN);
         this.registerReceiver(new CallReceiver(), filter);
+
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -173,50 +174,59 @@ public class TService extends Service
                 //No change, debounce extras
                 return;
             }
-            switch (state) {
+            switch (state)
+            {
                 case TelephonyManager.CALL_STATE_RINGING:
                     isIncoming = true;
                     callStartTime = new Date();
                     savedNumber = number;
                     onIncomingCallReceived(context, number, callStartTime);
                     break;
+
                 case TelephonyManager.CALL_STATE_OFFHOOK:
                     //Transition of ringing->offhook are pickups of incoming calls.  Nothing done on them
-                    if (lastState != TelephonyManager.CALL_STATE_RINGING) {
+                    if (lastState != TelephonyManager.CALL_STATE_RINGING)
+                    {
                         isIncoming = false;
                         callStartTime = new Date();
                         startRecording();
                         onOutgoingCallStarted(context, savedNumber, callStartTime);
-                    } else {
+                    }
+                    else
+                    {
                         isIncoming = true;
                         callStartTime = new Date();
                         startRecording();
                         onIncomingCallAnswered(context, savedNumber, callStartTime);
                     }
-
                     break;
+
                 case TelephonyManager.CALL_STATE_IDLE:
                     //Went to idle-  this is the end of a call.  What type depends on previous state(s)
-                    if (lastState == TelephonyManager.CALL_STATE_RINGING) {
+                    if (lastState == TelephonyManager.CALL_STATE_RINGING)
+                    {
                         //Ring but no pickup-  a miss
                         onMissedCall(context, savedNumber, callStartTime);
-                    } else if (isIncoming) {
+                    }
+                    else if (isIncoming)
+                    {
                         stopRecording();
                         onIncomingCallEnded(context, savedNumber, callStartTime, new Date());
-                    } else {
+                    }
+                    else
+                    {
                         stopRecording();
                         onOutgoingCallEnded(context, savedNumber, callStartTime, new Date());
                     }
                     break;
             }
+
             lastState = state;
         }
-
     }
 
     public class CallReceiver extends PhonecallReceiver
     {
-
         @Override
         protected void onIncomingCallReceived(Context ctx, String number, Date start)
         {
@@ -242,16 +252,16 @@ public class TService extends Service
         }
 
         @Override
-        protected void onOutgoingCallEnded(Context ctx, String number, Date start, Date end) {
+        protected void onOutgoingCallEnded(Context ctx, String number, Date start, Date end)
+        {
             Log.d("onOutgoingCallEnded", number + " " + start.toString() + "\t" + end.toString());
         }
 
         @Override
-        protected void onMissedCall(Context ctx, String number, Date start) {
+        protected void onMissedCall(Context ctx, String number, Date start)
+        {
             Log.d("onMissedCall", number + " " + start.toString());
 //        PostCallHandler postCallHandler = new PostCallHandler(number, "janskd" , "")
         }
-
     }
-
 }

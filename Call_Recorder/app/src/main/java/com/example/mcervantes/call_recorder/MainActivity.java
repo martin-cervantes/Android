@@ -58,6 +58,7 @@ public class MainActivity extends Activity
             startService(new Intent(MainActivity.this, TService.class));
             finish();
         }
+
         super.onActivityResult(requestCode, resultCode, data);
     }
 }
