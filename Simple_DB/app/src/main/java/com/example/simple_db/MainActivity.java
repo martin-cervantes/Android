@@ -1,5 +1,6 @@
 package com.example.simple_db;
 
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -31,19 +32,16 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                //Abrimos la base de datos 'Alumnos' en modo escritura
                 DatabaseHelper myDBHelper = new DatabaseHelper(MainActivity.this, "Alumnos", null, 1);
 
                 SQLiteDatabase db = myDBHelper.getWritableDatabase();
 
-                //Si hemos abierto correctamente la base de datos
                 if(db != null)
                 {
-                    //Insertar los datos en la tabla Alumnos
                     db.execSQL("INSERT INTO Alumnos (no_control, nombre, aPaterno, aMaterno) VALUES ( 184210, 'Martin', 'Cervantes', 'Palomo')");
 
                     Toast.makeText(MainActivity.this, "Registro Guardado", Toast.LENGTH_LONG).show();
-                    //Cerramos la base de datos
+
                     db.close();
                 }
             }
@@ -54,7 +52,27 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                String registros = "";
 
+                DatabaseHelper myDBHelper = new DatabaseHelper(MainActivity.this, "Alumnos", null, 1);
+
+                SQLiteDatabase db = myDBHelper.getWritableDatabase();
+
+                Cursor cursor = db.rawQuery("SELECT * FROM Alumnos", null);
+
+                if (cursor.moveToFirst())
+                {
+                    do
+                    {
+                        registros += cursor.getInt(cursor.getColumnIndex("no_control"));
+                        registros += cursor.getString(cursor.getColumnIndex("nombre"));
+                        registros += "\n";
+                    } while (cursor.moveToNext());
+                }
+
+                Toast.makeText(MainActivity.this, registros,Toast.LENGTH_LONG).show();
+
+                db.close();
             }
         });
 
@@ -63,19 +81,16 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                //Abrimos la base de datos 'Alumnos' en modo escritura
                 DatabaseHelper myDBHelper = new DatabaseHelper(MainActivity.this, "Alumnos", null, 1);
 
                 SQLiteDatabase db = myDBHelper.getWritableDatabase();
 
-                //Si hemos abierto correctamente la base de datos
                 if(db != null)
                 {
-                    //Borrar los datos en la tabla Alumnos
-                    db.execSQL("DELETE FROM Alumnos  WHERE no_control = 184210");
+                    db.execSQL("DELETE FROM Alumnos WHERE no_control = 184210");
 
                     Toast.makeText(MainActivity.this, "Registro Borrado", Toast.LENGTH_LONG).show();
-                    //Cerramos la base de datos
+
                     db.close();
                 }
             }
@@ -86,19 +101,16 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                //Abrimos la base de datos 'Alumnos' en modo escritura
                 DatabaseHelper myDBHelper = new DatabaseHelper(MainActivity.this, "Alumnos", null, 1);
 
                 SQLiteDatabase db = myDBHelper.getWritableDatabase();
 
-                //Si hemos abierto correctamente la base de datos
                 if(db != null)
                 {
-                    //Actualizar los datos en la tabla Alumnos
                     db.execSQL("UPDATE Alumnos SET no_control = 151245 WHERE no_control = 184210");
 
                     Toast.makeText(MainActivity.this, "Registro Actualizado", Toast.LENGTH_LONG).show();
-                    //Cerramos la base de datos
+
                     db.close();
                 }
             }
