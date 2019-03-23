@@ -64,13 +64,16 @@ public class MainActivity extends AppCompatActivity
                 {
                     do
                     {
-                        registros += cursor.getInt(cursor.getColumnIndex("no_control"));
+                        registros += cursor.getInt(cursor.getColumnIndex("no_control")) + "\t";
                         registros += cursor.getString(cursor.getColumnIndex("nombre"));
                         registros += "\n";
                     } while (cursor.moveToNext());
                 }
 
-                Toast.makeText(MainActivity.this, registros,Toast.LENGTH_LONG).show();
+                if (registros != "")
+                    Toast.makeText(MainActivity.this, registros,Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(MainActivity.this, "0 Registros", Toast.LENGTH_LONG).show();
 
                 db.close();
             }
@@ -107,7 +110,7 @@ public class MainActivity extends AppCompatActivity
 
                 if(db != null)
                 {
-                    db.execSQL("UPDATE Alumnos SET no_control = 151245 WHERE no_control = 184210");
+                    db.execSQL("UPDATE Alumnos SET nombre = 'Rodrigo' WHERE no_control = 184210");
 
                     Toast.makeText(MainActivity.this, "Registro Actualizado", Toast.LENGTH_LONG).show();
 
