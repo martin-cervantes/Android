@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/num_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Número de Control"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/txt_num_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/txt_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/aPaterno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A. Paterno"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/txt_aPaterno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/aMaterno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A. Materno"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/txt_aMaterno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/grupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grupo"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/txt_grupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btn_cancelar"
+        android:layout_width="163dp"
+        android:layout_height="44dp"
+        android:background="@android:color/holo_red_light"
+        android:text="Cancelar"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_guardar"
+        android:layout_width="163dp"
+        android:layout_height="44dp"
+        android:background="@color/design_default_color_primary"
+        android:text="Guardar"
+        android:textSize="14sp" />
+
+</LinearLayout>
